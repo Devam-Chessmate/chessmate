@@ -8,6 +8,7 @@ import TeamSection from "@/components/ui/team-section";
 import FinalCTASection from "@/components/ui/final-cta-section";
 import DemoBookingCTA from "@/components/demo-booking-cta";
 import MissionVision from "@/components/ui/mission";
+import PlatformSection from "@/components/platform";
 
 export default function AboutPage() {
   return (
@@ -15,7 +16,9 @@ export default function AboutPage() {
       <AboutBanner />
       <AboutSection />
       <MissionVision/>
+      
       <TeamSection />
+      <PlatformSection/>
       <AchievementsSection />
       <FaqSection />
       <DemoBookingCTA />
