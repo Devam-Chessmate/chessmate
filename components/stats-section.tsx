@@ -91,7 +91,7 @@ export default function PremiumFaqSection() {
                   <div className="w-10 h-10 bg-[#EAB308] flex items-center justify-center text-black shrink-0">
                     <Mail size={18} />
                   </div>
-                  <span className="text-white font-bold text-sm tracking-tight group-hover:text-[#EAB308] transition-colors">devamchess@gmail.com</span>
+                  <span className="text-white font-bold text-sm tracking-tight group-hover:text-[#EAB308] transition-colors">contact@thechessmate.org</span>
                 </div>
               </div>
               

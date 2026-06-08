@@ -215,7 +215,7 @@ export default function TermsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Badge className="bg-blue-500/10 text-blue-700 border border-blue-500/20 px-4 py-2">
-                  Email: devamchess@gmail.com
+                  Email: contact@thechessmate.org
                 </Badge>
                 <Badge className="bg-green-500/10 text-green-700 border border-green-500/20 px-4 py-2">
                   Phone: +91 7990775581

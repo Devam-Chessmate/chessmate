@@ -120,7 +120,7 @@ export default function Footer() {
                 </div>
                 <div>
                     <p className="text-[9px] font-black uppercase text-gray-500 mb-1">Inquiry Mail</p>
-                    <span className="text-xs md:text-sm font-black tracking-widest uppercase hover:text-[#EAB308] transition-colors cursor-pointer">devamchess@gmail.com</span>
+                    <span className="text-xs md:text-sm font-black tracking-widest uppercase hover:text-[#EAB308] transition-colors cursor-pointer">contact@thechessmate.org</span>
                 </div>
               </div>
             </div>

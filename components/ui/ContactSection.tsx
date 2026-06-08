@@ -110,7 +110,7 @@ const ContactSection: React.FC = () => {
 
               <div className="space-y-10">
                 <ContactInfoItem icon={<Phone />} label="Direct Lines" value="+91 79907 75581" subValue="+91 87330 84949" />
-                <ContactInfoItem icon={<Mail />} label="Support Email" value="devamchess@gmail.com" />
+                <ContactInfoItem icon={<Mail />} label="Support Email" value="contact@thechessmate.org" />
                 <ContactInfoItem icon={<Globe />} label="Academy Reach" value="Global Online Classes" />
               </div>
             </div>
@@ -150,7 +150,7 @@ const ContactSection: React.FC = () => {
                   <option value="">SELECT CLASS TYPE *</option>
                   <option value="Individual Classes">Individual</option>
                   <option value="Group Classes">Group</option>
-                  <option value="Open to Both">Both</option>
+                  <option value="Open to Both">Open for Both</option>
                 </select>
 
                 <NeubrutalistInput name="country" value={formData.country} onChange={handleChange} placeholder="COUNTRY *" required />
