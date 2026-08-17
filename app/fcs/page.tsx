@@ -15,11 +15,9 @@ import {
   ChevronRight,
 } from "lucide-react";
 import FCSBanner from "@/components/ui/FCSBanner";
-import { useDemoModal } from "@/context/DemoContext";
 
 // ---------- Section: Hero CTA (top booking strip) ----------
 function FCSHeroCTA() {
-  const { openDemoModal } = useDemoModal();
   return (
     <section className="bg-[#EAB308] py-6 md:py-8 px-5">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
@@ -34,14 +32,16 @@ function FCSHeroCTA() {
             Exclusive offer for Fayetteville Chess Society members. No payment required and no obligation to continue.
           </p>
         </div>
-        <button
+        <a
           id="fcs-hero-cta"
-          onClick={openDemoModal}
-          className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-3 px-7 py-4 bg-black text-[#EAB308] font-black text-[11px] uppercase tracking-[0.2em] border-2 border-black hover:bg-[#EAB308] hover:text-black transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-none"
+          href="https://cal.com/devam-makwana-chessmate/free-45-minute-chess-coaching-session-for-fcs-members"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-3 px-7 py-4 bg-black text-[#EAB308] font-black text-[11px] uppercase tracking-[0.2em] border-2 border-black hover:bg-[#EAB308] hover:text-black transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-none text-center"
         >
           Book My Free Session
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </a>
       </div>
     </section>
   );
@@ -49,8 +49,6 @@ function FCSHeroCTA() {
 
 // ---------- Section 1: Free Session Breakdown ----------
 function WhatHappensDuringSession() {
-  const { openDemoModal } = useDemoModal();
-
   const steps = [
     {
       icon: Search,
@@ -131,14 +129,16 @@ function WhatHappensDuringSession() {
 
         {/* CTA */}
         <div className="text-center">
-          <button
+          <a
             id="fcs-session-cta"
-            onClick={openDemoModal}
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 bg-black text-[#EAB308] font-black text-[12px] uppercase tracking-[0.25em] border-2 border-black hover:bg-[#EAB308] hover:text-black transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(234,179,8,1)] hover:shadow-none active:bg-[#EAB308] active:text-black"
+            href="https://cal.com/devam-makwana-chessmate/free-45-minute-chess-coaching-session-for-fcs-members"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 bg-black text-[#EAB308] font-black text-[12px] uppercase tracking-[0.25em] border-2 border-black hover:bg-[#EAB308] hover:text-black transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(234,179,8,1)] hover:shadow-none active:bg-[#EAB308] active:text-black text-center"
           >
             Book My Free Session
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -450,8 +450,6 @@ function WhoIsThisFor() {
 
 // ---------- Section 6: Final CTA ----------
 function FinalCTA() {
-  const { openDemoModal } = useDemoModal();
-
   return (
     <section className="py-14 md:py-28 px-5 sm:px-6 bg-[#050505] relative overflow-hidden">
       {/* Chessboard bg */}
@@ -498,14 +496,16 @@ function FinalCTA() {
           </div>
         </div>
 
-        <button
+        <a
           id="fcs-final-cta"
-          onClick={openDemoModal}
-          className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 md:px-12 md:py-6 bg-[#EAB308] text-black font-black text-[12px] md:text-[13px] uppercase tracking-[0.2em] md:tracking-[0.25em] border-2 border-[#EAB308] hover:bg-transparent hover:text-[#EAB308] transition-all duration-300 shadow-[5px_5px_0px_0px_rgba(234,179,8,0.4)] hover:shadow-none active:bg-transparent active:text-[#EAB308]"
+          href="https://cal.com/devam-makwana-chessmate/free-45-minute-chess-coaching-session-for-fcs-members"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 md:px-12 md:py-6 bg-[#EAB308] text-black font-black text-[12px] md:text-[13px] uppercase tracking-[0.2em] md:tracking-[0.25em] border-2 border-[#EAB308] hover:bg-transparent hover:text-[#EAB308] transition-all duration-300 shadow-[5px_5px_0px_0px_rgba(234,179,8,0.4)] hover:shadow-none active:bg-transparent active:text-[#EAB308] text-center"
         >
           Book My Free Session
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </button>
+        </a>
 
         <p className="text-gray-600 text-xs font-bold uppercase tracking-widest mt-6">
           Your first session is completely free. No payment required and no obligation to continue.

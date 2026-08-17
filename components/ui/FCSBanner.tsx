@@ -51,11 +51,11 @@ const FCSBanner: React.FC = () => {
                 <img
                   src="/logo.webp"
                   alt="ChessMate Academy"
-                  className="h-10 md:h-12 object-contain brightness-0 invert"
+                  className="h-10 md:h-12 object-contain"
                 />
-                <div className="flex items-center gap-2">
-                  <span className="text-white/40 text-2xl font-thin">×</span>
-                  <span className="text-white/80 text-[18px] font-black uppercase tracking-[0.3em]">
+                <div className="flex items-center gap-3">
+                  <span className="text-[#EAB308] text-2xl md:text-3xl font-semibold">×</span>
+                  <span className="text-white/80 text-[28px] md:text-[36px] font-black uppercase tracking-[0.3em] leading-none">
                     FCS
                   </span>
                 </div>
