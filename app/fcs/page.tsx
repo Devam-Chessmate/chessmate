@@ -522,11 +522,12 @@ export default function FCSPage() {
       {/* Banner — matching other pages */}
       <FCSBanner />
 
+      {/* Body sections */}
+      <WhatHappensDuringSession />
+
       {/* Hero strip with partnership intro */}
       <FCSHeroCTA />
 
-      {/* Body sections */}
-      <WhatHappensDuringSession />
       <BeyondPuzzles />
       <PlatformSection />
       <CoachSection />

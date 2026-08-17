@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Handshake, MapPin, Shield } from "lucide-react";
+import { ArrowRight, ChevronRight, Handshake, MapPin, Shield } from "lucide-react";
 import Link from "next/link";
 
 const FCSBanner: React.FC = () => {
@@ -28,7 +28,7 @@ const FCSBanner: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-gradient-to-tr from-teal-900/20 to-transparent pointer-events-none" />
 
       {/* --- MAIN LAYOUT --- */}
-      <div className="container mx-auto px-5 sm:px-8 lg:px-12 relative z-10 pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-20 lg:pb-24">
+      <div className="container mx-auto px-5 sm:px-8 lg:px-12 relative z-10 pt-26 pb-12 md:pt-20 md:pb-16 lg:pt-24 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
           {/* LEFT CONTENT */}
@@ -55,9 +55,16 @@ const FCSBanner: React.FC = () => {
                 />
                 <div className="flex items-center gap-3">
                   <span className="text-[#EAB308] text-2xl md:text-3xl font-semibold">×</span>
-                  <span className="text-white/80 text-[28px] md:text-[36px] font-black uppercase tracking-[0.3em] leading-none">
-                    FCS
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src="/fcs-logo.png"
+                      alt="Fayetteville Chess Society"
+                      className="h-10 md:h-12 w-auto object-contain rounded-md"
+                    />
+                    <span className="text-white text-[28px] md:text-[36px] font-black uppercase tracking-[0.3em] leading-none">
+                      FCS
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -74,6 +81,19 @@ const FCSBanner: React.FC = () => {
                 from ChessMate Academy — exclusively for Fayetteville Chess Society
                 members.
               </p>
+
+              {/* Hero CTA Button */}
+              <div className="mb-8 md:mb-12">
+                <a
+                  href="https://cal.com/devam-makwana-chessmate/free-45-minute-chess-coaching-session-for-fcs-members"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#EAB308] text-black font-black text-xs uppercase tracking-[0.2em] border-2 border-[#EAB308] hover:bg-transparent hover:text-[#EAB308] transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(234,179,8,0.4)] hover:shadow-none"
+                >
+                  Book My Free Session
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
 
               {/* Breadcrumbs */}
               <nav className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-bold uppercase tracking-widest">
