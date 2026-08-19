@@ -120,13 +120,13 @@ const FCSBanner: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="relative aspect-square w-full max-w-[450px] mx-auto lg:ml-auto"
+              className="relative aspect-[5/3] w-full max-w-[650px] mx-auto lg:ml-auto"
             >
               {/* Main Image Frame */}
               <div className="absolute inset-0 border border-[#EAB308]/30 p-2 md:p-4">
                 <div className="relative w-full h-full overflow-hidden bg-[#111]">
                   <img
-                    src="/1.webp"
+                    src="/fcs-platform.jpg"
                     alt="Chess Coaching Session"
                     className="w-full h-full object-cover brightness-75 hover:brightness-100 transition-all duration-1000"
                   />

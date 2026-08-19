@@ -288,7 +288,7 @@ function PlatformSection() {
           {/* Platform dashboard image */}
           <div className="border-2 border-black shadow-[6px_6px_0px_0px_rgba(234,179,8,1)] md:shadow-[8px_8px_0px_0px_rgba(234,179,8,1)] overflow-hidden">
             <img
-              src="/fcs-platform.jpg"
+              src="/dashboard.jpeg"
               alt="ChessMate Training Platform Dashboard"
               className="w-full h-full object-cover object-top"
             />
