@@ -257,7 +257,7 @@ function PlatformSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mt-8 md:mt-12">
           <div className="space-y-6">
             <p className="text-gray-600 text-lg leading-relaxed">
-              ChessMate students also receive access to our <strong className="text-black">gamified training platform</strong>, allowing them to continue practicing and reinforcing what they learn between live sessions.
+              ChessMate students also receive access to our <strong className="text-black">personalized training portal</strong>, allowing them to continue practicing and reinforcing what they learn between live sessions.
             </p>
             <p className="text-gray-500 leading-relaxed">
               The platform includes personalized assignments, calculation training, tactical practice, mini-games, and additional training resources.
@@ -288,7 +288,7 @@ function PlatformSection() {
           {/* Platform dashboard image */}
           <div className="border-2 border-black shadow-[6px_6px_0px_0px_rgba(234,179,8,1)] md:shadow-[8px_8px_0px_0px_rgba(234,179,8,1)] overflow-hidden">
             <img
-              src="/dashboard.jpeg"
+              src="/fcs-platform.jpg"
               alt="ChessMate Training Platform Dashboard"
               className="w-full h-full object-cover object-top"
             />

@@ -76,11 +76,19 @@ const FCSBanner: React.FC = () => {
                 Chess Coaching
               </h1>
 
-              <p className="text-gray-400 text-sm md:text-xl font-medium leading-relaxed mb-6 md:mb-10 max-w-lg border-l-4 border-[#EAB308]/50 pl-4">
+              <p className="text-gray-400 text-sm md:text-xl font-medium leading-relaxed mb-6 md:mb-8 max-w-lg border-l-4 border-[#EAB308]/50 pl-4">
                 Improve your chess with a personalized 45-minute one-on-one session
                 from ChessMate Academy — exclusively for Fayetteville Chess Society
                 members.
               </p>
+
+              {/* Pricing Notice */}
+              <div className="mb-6 md:mb-8 max-w-lg bg-white/5 border border-white/10 p-4 relative overflow-hidden">
+                <div className="absolute top-0 left-0 h-full w-[3px] bg-[#EAB308]" />
+                <p className="text-gray-300 text-xs md:text-sm leading-relaxed font-medium">
+                  After your free demo, regular coaching starts from just $100/month, giving you 4 personalized 1-on-1 classes (1 class every week).
+                </p>
+              </div>
 
               {/* Hero CTA Button */}
               <div className="mb-8 md:mb-12">
@@ -112,7 +120,7 @@ const FCSBanner: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="relative h-[260px] sm:h-[340px] md:h-[400px] lg:h-auto lg:aspect-[4/5] max-w-[450px] mx-auto lg:ml-auto"
+              className="relative aspect-square w-full max-w-[450px] mx-auto lg:ml-auto"
             >
               {/* Main Image Frame */}
               <div className="absolute inset-0 border border-[#EAB308]/30 p-2 md:p-4">
