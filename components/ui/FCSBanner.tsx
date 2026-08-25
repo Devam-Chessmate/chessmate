@@ -57,7 +57,7 @@ const FCSBanner: React.FC = () => {
                   <span className="text-[#EAB308] text-2xl md:text-3xl font-semibold">×</span>
                   <div className="flex items-center gap-3">
                     <img
-                      src="/fcs-logo.png"
+                      src="/fcs-logo.jpeg"
                       alt="Fayetteville Chess Society"
                       className="h-10 md:h-12 w-auto object-contain rounded-md"
                     />
