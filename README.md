@@ -1,3 +1,3 @@
-﻿# star-chess-academy
+﻿# chess-academy
 
 
