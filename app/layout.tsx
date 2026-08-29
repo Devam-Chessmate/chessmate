@@ -12,8 +12,8 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Chessmate Academy | Where Champions Are Build",
-  description: "Nurturing young minds through strategic chess training. Founded by International Rated Coach Raghava M.. Expert-led 1:1 and group classes for ages 6-16.",
-  keywords: ["Chess Academy Indirapuram", "Online Chess Classes", "Raghava M. Chess", "Chessmate", "FIDE Rated Coaches"],
+  description: "Nurturing young minds through strategic chess training.Expert-led 1:1 and group classes for ages 6-16.",
+  keywords: ["Chess Academy Indirapuram", "Online Chess Classes", "Chessmate", "FIDE Rated Coaches"],
   openGraph: {
     title: "Chessmate Academy",
     description: "Transform your child into a strategic thinker. Book a free demo class today.",
@@ -44,7 +44,7 @@ export default function RootLayout({
           "logo": "https://thechessmate.org/logo.png",
           "founder": {
             "@type": "Person",
-            "name": "Raghava M."
+            "name": "Devam"
           },
           "address": {
             "@type": "PostalAddress",
