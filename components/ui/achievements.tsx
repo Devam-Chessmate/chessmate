@@ -11,6 +11,8 @@ import {
   Star 
 } from 'lucide-react';
 
+import WorldMapInteractive from './WorldMapInteractive';
+
 const COUNTRIES = [
   { name: "USA", code: "us" },
   { name: "India", code: "in" },
@@ -51,10 +53,10 @@ export default function AboutInformation() {
         </div>
 
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* LEFT CONTENT: TEXT & TAGS */}
-            <div className="lg:col-span-6 space-y-10">
+            <div className="lg:col-span-5 space-y-10">
               <div>
                 <div className="inline-flex items-center gap-2 bg-black text-[#EAB308] px-4 py-1.5 mb-8 border-2 border-black shadow-[4px_4px_0px_0px_rgba(234,179,8,1)]">
                   <Globe className="w-4 h-4" />
@@ -110,20 +112,20 @@ export default function AboutInformation() {
               </div>
             </div>
 
-            {/* RIGHT CONTENT: FULL COLOR MAP */}
-            <div className="lg:col-span-6 relative">
+            {/* RIGHT CONTENT: FULL COLOR MAP IMAGE */}
+            <div className="lg:col-span-7 relative">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative border-[12px] border-black shadow-[25px_25px_0px_0px_rgba(234,179,8,1)] overflow-hidden bg-white group"
+                className="relative border-[10px] md:border-[12px] border-black shadow-[20px_20px_0px_0px_rgba(234,179,8,1)] overflow-hidden bg-[#111827] group"
               >
                 <img 
                   src="/map.png" 
-                  alt="Chessmate Student Global Map" 
-                  className="w-full h-auto transition-transform duration-1000 group-hover:scale-105 p-2"
+                  alt="Chessmate Student Global Network" 
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute top-6 right-6 bg-black text-[#EAB308] border-2 border-[#EAB308] px-4 py-2 font-black uppercase text-[10px] tracking-widest flex items-center gap-2 shadow-xl">
+                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-black text-[#EAB308] border-2 border-[#EAB308] px-3.5 py-1.5 md:px-4 md:py-2 font-black uppercase text-[9px] md:text-[10px] tracking-widest flex items-center gap-2 shadow-xl">
                   <div className="w-2 h-2 bg-[#EAB308] rounded-full animate-pulse"></div>
                   Live Student Network
                 </div>

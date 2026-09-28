@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import BlogBanner from "@/components/ui/blogBanner";
 
-export const BLOG_POSTS = [
+const BLOG_POSTS = [
 
   // ─── DOCUMENT 1 BLOGS ───────────────────────────────────────────────────────
 

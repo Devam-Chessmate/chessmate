@@ -73,7 +73,7 @@ export default function AgeInclusiveSection() {
               onClick={openDemoModal}
               className="inline-flex items-center gap-4 bg-black text-[#EAB308] px-10 py-5 font-[1000] uppercase text-xs tracking-[0.2em] border-2 border-black shadow-[8px_8px_0px_0px_rgba(234,179,8,1)] hover:bg-[#EAB308] hover:text-black hover:shadow-none transition-all active:scale-95"
             >
-              Start Learning Now
+              Book Free Demo
               <ArrowRight className="w-5 h-5" strokeWidth={3} />
             </button>
           </div>

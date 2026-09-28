@@ -12,17 +12,34 @@ import {
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
+const COUNTRY_DIAL_CODES = [
+  { code: "+91", label: "India (+91)" },
+  { code: "+1", label: "USA / Canada (+1)" },
+  { code: "+44", label: "UK (+44)" },
+  { code: "+65", label: "Singapore (+65)" },
+  { code: "+971", label: "UAE (+971)" },
+  { code: "+61", label: "Australia (+61)" },
+  { code: "+351", label: "Portugal (+351)" },
+  { code: "+81", label: "Japan (+81)" },
+  { code: "+39", label: "Italy (+39)" },
+  { code: "+49", label: "Germany (+49)" },
+  { code: "+33", label: "France (+33)" },
+  { code: "+966", label: "Saudi Arabia (+966)" },
+  { code: "+974", label: "Qatar (+974)" },
+  { code: "+965", label: "Kuwait (+965)" },
+  { code: "+64", label: "New Zealand (+64)" },
+  { code: "+41", label: "Switzerland (+41)" },
+  { code: "+31", label: "Netherlands (+31)" },
+  { code: "+353", label: "Ireland (+353)" },
+];
+
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
     studentName: "",
     studentAge: "",
-    classType: "",
-    country: "",
-    timezone: "",
-    preferredTime: "",
-    email: "",
+    countryCode: "+91",
     phone: "",
-    waNumber: "",
+    email: "",
     comment: "",
   });
 
@@ -41,37 +58,33 @@ const ContactSection: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    const fullPhoneNumber = `${formData.countryCode} ${formData.phone}`;
+
     try {
-     await emailjs.send(
-  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-  process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID!, // ✅ FIXED
-  {
-    studentName: formData.studentName,
-    studentAge: formData.studentAge,
-    classType: formData.classType,
-    country: formData.country,
-    timezone: formData.timezone,
-    preferredTime: formData.preferredTime,
-    email: formData.email,
-    phone: formData.phone,
-    waNumber: formData.waNumber,
-    comment: formData.comment,
-    time: new Date().toLocaleString(),
-  },
-  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-);
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID!,
+        {
+          studentName: formData.studentName,
+          studentAge: formData.studentAge,
+          email: formData.email,
+          phone: fullPhoneNumber,
+          countryCode: formData.countryCode,
+          phoneNumber: formData.phone,
+          comment: formData.comment,
+          demoType: "Free Demo Request",
+          time: new Date().toLocaleString(),
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
       setSubmitStatus("success");
 
       setFormData({
         studentName: "",
         studentAge: "",
-        classType: "",
-        country: "",
-        timezone: "",
-        preferredTime: "",
-        email: "",
+        countryCode: "+91",
         phone: "",
-        waNumber: "",
+        email: "",
         comment: "",
       });
 
@@ -129,10 +142,10 @@ const ContactSection: React.FC = () => {
           <div className="w-full lg:w-[65%] p-8 md:p-14 bg-white">
             <div className="mb-10">
               <h3 className="text-2xl md:text-4xl font-[1000] uppercase mb-3">
-                Begin Your Journey
+                Book A Free Demo
               </h3>
-              <p className="text-[10px] font-black text-gray-400 uppercase">
-                Enter details to schedule your free demo session
+              <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                Enter your details to schedule your complimentary 1-on-1 trial session
               </p>
             </div>
 
@@ -143,33 +156,48 @@ const ContactSection: React.FC = () => {
                   <NeubrutalistInput name="studentName" value={formData.studentName} onChange={handleChange} placeholder="STUDENT FULL NAME *" required />
                 </div>
 
-                <NeubrutalistInput name="studentAge" type="number" value={formData.studentAge} onChange={handleChange} placeholder="STUDENT AGE *" required />
+                <NeubrutalistInput name="studentAge" type="number" min="4" max="99" value={formData.studentAge} onChange={handleChange} placeholder="STUDENT AGE *" required />
 
-                <select name="classType" required value={formData.classType} onChange={handleChange}
-                  className="w-full p-5 border-2 border-black font-black text-[11px] uppercase bg-gray-50">
-                  <option value="">SELECT CLASS TYPE *</option>
-                  <option value="Individual Classes">Individual</option>
-                  <option value="Group Classes">Group</option>
-                  <option value="Open to Both">Open for Both</option>
-                </select>
+                <NeubrutalistInput name="email" type="email" value={formData.email} onChange={handleChange} placeholder="EMAIL ADDRESS *" required />
 
-                <NeubrutalistInput name="country" value={formData.country} onChange={handleChange} placeholder="COUNTRY *" required />
-                <NeubrutalistInput name="timezone" value={formData.timezone} onChange={handleChange} placeholder="TIME ZONE *" required />
-
-                <div className="md:col-span-2">
-                  <NeubrutalistInput name="preferredTime" value={formData.preferredTime} onChange={handleChange} placeholder="PREFERRED DATE & TIME *" required />
+                {/* Country Code & Mobile Number */}
+                <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="sm:col-span-1">
+                    <label className="block text-[9px] font-black uppercase text-gray-500 mb-1">Country Code *</label>
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleChange}
+                      className="w-full p-5 border-2 border-black font-black text-[11px] uppercase bg-gray-50 tracking-wider"
+                    >
+                      {COUNTRY_DIAL_CODES.map((c) => (
+                        <option key={c.code} value={c.code}>
+                          {c.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="block text-[9px] font-black uppercase text-gray-500 mb-1">Mobile Number *</label>
+                    <input
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="MOBILE NUMBER *"
+                      required
+                      className="w-full p-5 border-2 border-black bg-gray-50 uppercase text-[11px] font-black"
+                    />
+                  </div>
                 </div>
-
-                <NeubrutalistInput name="email" type="email" value={formData.email} onChange={handleChange} placeholder="EMAIL *" required />
-                <NeubrutalistInput name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="PHONE *" required />
 
                 <div className="md:col-span-2">
                   <textarea
                     name="comment"
                     value={formData.comment}
                     onChange={handleChange}
-                    className="w-full p-5 border-2 border-black bg-gray-50 min-h-[120px]"
-                    placeholder="Enter your chess username and platform (Chess.com or Lichess)"
+                    className="w-full p-5 border-2 border-black bg-gray-50 min-h-[120px] font-black text-xs"
+                    placeholder="CHESS USERNAME / PLATFORM / ANY QUESTIONS (OPTIONAL)"
                   />
                 </div>
               </div>
@@ -177,22 +205,22 @@ const ContactSection: React.FC = () => {
               {/* STATUS */}
               {submitStatus === "success" && (
                 <motion.div className="p-4 bg-black text-[#EAB308] text-xs font-black">
-                  ✅ ENQUIRY SENT SUCCESSFULLY
+                  ✅ FREE DEMO ENQUIRY SENT SUCCESSFULLY! WE WILL CONTACT YOU SHORTLY.
                 </motion.div>
               )}
 
               {submitStatus === "error" && (
                 <div className="p-4 bg-red-500 text-white text-xs font-black">
-                  ❌ FAILED TO SEND. TRY AGAIN.
+                  ❌ FAILED TO SEND. TRY AGAIN OR REACH OUT VIA WHATSAPP.
                 </div>
               )}
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-black text-[#EAB308] py-6 font-[1000] flex justify-center gap-3"
+                className="w-full bg-black text-[#EAB308] hover:bg-[#EAB308] hover:text-black transition-colors py-6 font-[1000] text-sm uppercase tracking-widest flex justify-center items-center gap-3 shadow-[6px_6px_0px_0px_rgba(234,179,8,1)]"
               >
-                {isSubmitting ? "SENDING..." : "REQUEST DEMO"}
+                {isSubmitting ? "SENDING..." : "REQUEST FREE DEMO"}
               </button>
             </form>
           </div>

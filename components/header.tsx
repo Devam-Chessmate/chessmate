@@ -124,12 +124,12 @@ const Header: React.FC = () => {
               Classroom
             </a>
 
-            {/* Book Demo Button */}
+            {/* Book Free Demo Button */}
             <button
               onClick={openDemoModal}
               className="hidden md:flex items-center gap-3 px-8 py-3 bg-black text-[#EAB308] text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 border-2 border-black hover:bg-[#EAB308] hover:text-black shadow-lg"
             >
-              Book a Demo
+              Book Free Demo
               <ArrowRightIcon className="w-4 h-4" />
             </button>
 

@@ -151,17 +151,27 @@ export default function Footer() {
 
       {/* --- FLOATING ACTION UI --- */}
       <a
-         href="https://wa.me/917990775581"
-         target="_blank"
-         rel="noopener noreferrer"
-         className="fixed bottom-8 left-8 z-50 bg-[#25D366] text-white p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all active:scale-95 group"
+        href="https://wa.me/917990775581"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full shadow-[0_8px_25px_rgba(37,211,102,0.5)] border-2 border-white hover:scale-110 active:scale-95 transition-all duration-300 group"
       >
-         <MessageCircle className="w-6 h-6 md:w-7 md:h-7 group-hover:scale-110 transition-transform" fill="currentColor" />
+        <span className="absolute left-full ml-3 px-3 py-1.5 bg-black text-white text-xs font-black uppercase tracking-wider rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-lg border border-white/20">
+          Chat on WhatsApp
+        </span>
+        <svg
+          viewBox="0 0 32 32"
+          className="w-8 h-8 md:w-9 md:h-9 fill-white drop-shadow"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M16.002 2C8.28 2 2.02 8.26 2.02 15.982c0 2.62.72 5.17 2.08 7.39L2 30l6.83-2.05c2.16 1.25 4.63 1.91 7.17 1.91 7.72 0 13.98-6.26 13.98-13.98S23.724 2 16.002 2zm0 25.56c-2.22 0-4.39-.59-6.3-1.71l-.45-.27-4.66 1.4 1.42-4.52-.29-.47a11.517 11.517 0 0 1-1.77-6.01c0-6.37 5.19-11.56 11.56-11.56 6.38 0 11.57 5.19 11.57 11.56 0 6.37-5.19 11.58-11.08 11.58zm6.34-8.67c-.35-.17-2.07-1.02-2.39-1.14-.32-.12-.55-.17-.79.17-.23.35-.91 1.14-1.12 1.38-.2.23-.41.26-.76.09-.35-.17-1.47-.54-2.81-1.73-1.04-.93-1.75-2.07-1.95-2.42-.2-.35-.02-.54.15-.71.16-.16.35-.41.52-.61.18-.21.23-.35.35-.58.12-.23.06-.44-.03-.61-.09-.17-.79-1.9-1.08-2.6-.28-.68-.57-.59-.79-.6-.2-.01-.44-.01-.67-.01-.23 0-.61.09-.93.44-.32.35-1.23 1.2-1.23 2.93 0 1.73 1.26 3.4 1.44 3.63.17.23 2.47 3.77 5.98 5.29.84.36 1.49.58 2 .74.84.27 1.61.23 2.22.14.68-.1 2.07-.85 2.36-1.66.29-.82.29-1.52.2-1.66-.08-.14-.32-.23-.67-.4z" />
+        </svg>
       </a>
 
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 z-50 p-4 bg-[#EAB308] text-black border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none active:scale-95 ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
+        className={`fixed bottom-6 right-6 z-50 p-4 bg-[#EAB308] text-black border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none active:scale-95 ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
       >
         <ArrowUp className="w-6 h-6 md:w-7 md:h-7" strokeWidth={4} />
       </button>

@@ -80,6 +80,7 @@ const ALL_REVIEWS = [
 export default function TestimonialSection() {
   const [startIndex, setStartIndex] = useState(0);
   const [displayCount, setDisplayCount] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Handle responsiveness manually for the slider count
   useEffect(() => {
@@ -100,6 +101,15 @@ export default function TestimonialSection() {
   const prevSlide = () => {
     setStartIndex((prev) => (prev - 1 + ALL_REVIEWS.length) % ALL_REVIEWS.length);
   };
+
+  // Auto slide effect
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused, startIndex]);
 
   // Get the visible slides (wrapping around the array)
   const visibleReviews = [];
@@ -149,7 +159,11 @@ export default function TestimonialSection() {
         </div>
 
         {/* --- SLIDER GRID --- */}
-        <div className="relative">
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout" initial={false}>
               {visibleReviews.map((review, idx) => (
@@ -189,6 +203,22 @@ export default function TestimonialSection() {
                 </motion.div>
               ))}
             </AnimatePresence>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center items-center gap-3 mt-10">
+            {ALL_REVIEWS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setStartIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`transition-all duration-300 border-2 border-black ${
+                  startIndex === i
+                    ? "w-8 h-3.5 bg-[#EAB308] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                    : "w-3.5 h-3.5 bg-gray-200 hover:bg-gray-400"
+                }`}
+              />
+            ))}
           </div>
         </div>
 

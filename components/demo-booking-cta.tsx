@@ -51,13 +51,13 @@ export default function CompactCTA() {
 
             {/* RIGHT: ACTION BOX */}
             <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto">
-             <Link
-  href="/contact"   // change this to your actual route
-  className="group relative w-full sm:w-auto px-8 md:px-12 py-5 md:py-6 bg-yellow-400 border-[3px] md:border-4 border-black text-black font-black uppercase tracking-[0.2em] text-xs md:text-sm rounded-2xl shadow-[5px_5px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-3 active:scale-95"
->
-  Get Started Now
-  <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-</Link>
+              <Link
+                href="/contact"
+                className="group relative w-full sm:w-auto px-8 md:px-12 py-5 md:py-6 bg-yellow-400 border-[3px] md:border-4 border-black text-black font-black uppercase tracking-[0.2em] text-xs md:text-sm rounded-2xl shadow-[5px_5px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-3 active:scale-95"
+              >
+                Book Free Demo
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </Link>
               
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-3">

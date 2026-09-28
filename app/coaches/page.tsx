@@ -133,7 +133,7 @@ export default function CoachesPage() {
       : "bg-white text-black shadow-[4px_4px_0px_0px_black]"
   }`}
 >
-  Book Demo
+  Book Free Demo
 </button>
               </motion.div>
             ))}

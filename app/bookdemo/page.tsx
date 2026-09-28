@@ -159,7 +159,7 @@ export default function BookDemoPage() {
               className="w-full sm:w-auto group bg-yellow-400 text-black border-[3px] md:border-4 border-black font-black uppercase italic py-5 md:py-6 px-10 md:px-12 rounded-2xl text-base md:text-lg flex items-center justify-center gap-3 shadow-[6px_6px_0px_0px_white] md:shadow-[8px_8px_0px_0px_white] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all active:scale-95"
             >
               <Calendar className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />
-              <span>Book Demo Now</span>
+              <span>Book Free Demo Now</span>
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform" />
             </button>
             

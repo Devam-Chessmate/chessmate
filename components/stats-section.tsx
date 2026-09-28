@@ -95,8 +95,8 @@ export default function PremiumFaqSection() {
                 </div>
               </div>
               
-              <button onClick={openDemoModal} className="w-full mt-10 py-4 bg-white text-black font-black uppercase text-[10px] tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-[#EAB308] transition-all">
-                Book a Demo <ArrowRight size={14} />
+              <button onClick={openDemoModal} className="w-full mt-10 py-4 bg-white text-black font-black uppercase text-[10px] tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-[#EAB308] transition-all shadow-[4px_4px_0px_0px_rgba(234,179,8,1)]">
+                Book Free Demo <ArrowRight size={14} />
               </button>
             </div>
           </div>

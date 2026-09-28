@@ -66,7 +66,7 @@ const CoachCtaSection: React.FC = () => {
               onClick={openDemoModal}
               className="group bg-white text-[#1e1b4b] hover:bg-blue-50 active:scale-95 transition-all duration-300 font-bold py-3 px-8 rounded-full flex items-center gap-2 shadow-[0_4px_14px_0_rgba(255,255,255,0.39)]"
             >
-              GET STARTED
+              BOOK FREE DEMO
               <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
