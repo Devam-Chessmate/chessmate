@@ -1,14 +1,15 @@
+import type { Metadata } from "next";
+import { getSeoMetadata } from "@/config/seo";
 import AboutBanner from "@/components/ui/AboutBanner";
 import AboutSection from "@/components/ui/AboutSection";
 import FaqSection from "@/components/stats-section";
-import CoachCtaSection from "@/components/ui/CoachCtaSection";
-import TestimonialsSection from "@/components/testimonials-section";
 import AchievementsSection from "@/components/ui/achievements";
 import TeamSection from "@/components/ui/team-section";
-import FinalCTASection from "@/components/ui/final-cta-section";
 import DemoBookingCTA from "@/components/demo-booking-cta";
 import MissionVision from "@/components/ui/mission";
 import PlatformSection from "@/components/platform";
+
+export const metadata: Metadata = getSeoMetadata("about");
 
 export default function AboutPage() {
   return (

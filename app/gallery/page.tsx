@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
+import { getSeoMetadata } from "@/config/seo";
 import GalleryBanner from "@/components/ui/GalleryBanner";
 import GallerySection from "@/components/ui/GallerySection";
+
+export const metadata: Metadata = getSeoMetadata("gallery");
 
 export default function GalleryPage() {
   return (
