@@ -38,47 +38,39 @@ import {
 } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
 
-// 5-Step Continuous Improvement Loop
+// 4-Step Continuous Improvement Loop: Live Class -> Puzzles -> Solution Analysis -> Adaptive Improvement
 const COACHING_LOOP_STEPS = [
   {
     step: "01",
-    phase: "LEARN",
+    phase: "LIVE CLASS",
     title: "Live 1-on-1 Coaching",
-    desc: "Work closely with your FIDE-rated mentor during your live lesson, dissecting strategic concepts and new theoretical ideas on an interactive digital board.",
+    desc: "Work in-depth with your FIDE-rated mentor, learning new opening ideas, calculation methods, and middle-game concepts on an interactive digital board.",
     icon: Monitor,
-    badge: "Live Lesson"
+    badge: "1-on-1 Session"
   },
   {
     step: "02",
-    phase: "PRACTICE",
-    title: "Targeted Assignment Deployed",
-    desc: "Your coach curates and pushes customized tactical drills, puzzle sets, and position exercises directly to your student dashboard based on your session.",
+    phase: "POST-CLASS PUZZLES",
+    title: "Targeted Puzzles Assigned After Class",
+    desc: "Right after your live lesson ends, your coach pushes curated tactical drills and position puzzles to your dashboard based directly on the topics taught and weaknesses noticed.",
     icon: FolderCheck,
-    badge: "Platform Task"
+    badge: "Curated Practice"
   },
   {
     step: "03",
-    phase: "PLAY",
-    title: "Real Game Application",
-    desc: "Apply the newly learned ideas in rated platform sparring games, weekly internal arenas, or your own Chess.com and Lichess games.",
-    icon: Swords,
-    badge: "Competitive Play"
+    phase: "SOLUTION ANALYSIS",
+    title: "Deep Solution & Mistake Analysis",
+    desc: "As you solve your puzzles, the platform tracks your calculation speed, move accuracy, and failed branches. Your coach analyzes your solutions to detect recurring blindspots.",
+    icon: BarChart3,
+    badge: "Diagnostic Review"
   },
   {
     step: "04",
-    phase: "ANALYZE",
-    title: "Deep Mistake Diagnostics",
-    desc: "The platform and coach review your games, isolate recurring blunder patterns, and convert your actual missed moves into custom training puzzles.",
-    icon: BarChart3,
-    badge: "AI + Coach Review"
-  },
-  {
-    step: "05",
-    phase: "IMPROVE",
-    title: "Dynamic Curriculum Calibration",
-    desc: "As your tactical accuracy and rating rise, your weekly assignments and training difficulty automatically adapt to keep you constantly progressing.",
+    phase: "ADAPT & IMPROVE",
+    title: "Continuous Calibration & Improvement",
+    desc: "On the basis of your puzzle solutions, your next class curriculum, homework difficulty, and training roadmap dynamically evolve to eliminate your biggest weaknesses.",
     icon: TrendingUp,
-    badge: "Adaptive Growth"
+    badge: "Targeted Surge"
   }
 ];
 
@@ -456,8 +448,8 @@ export default function PlatformClientPage() {
             </p>
           </div>
 
-          {/* 5-Step Process Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-6">
+          {/* 4-Step Process Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {COACHING_LOOP_STEPS.map((step, idx) => {
               const IconComp = step.icon;
               return (
@@ -476,11 +468,11 @@ export default function PlatformClientPage() {
                       </span>
                     </div>
 
-                    <div className="w-10 h-10 bg-gray-100 border-2 border-black flex items-center justify-center mb-3 group-hover:bg-[#EAB308] transition-colors">
-                      <IconComp className="w-5 h-5 text-black" />
+                    <div className="w-12 h-12 bg-gray-100 border-2 border-black flex items-center justify-center mb-3 group-hover:bg-[#EAB308] transition-colors">
+                      <IconComp className="w-6 h-6 text-black" />
                     </div>
 
-                    <h3 className="font-[1000] text-sm uppercase tracking-tight text-black mb-2">
+                    <h3 className="font-[1000] text-sm uppercase tracking-tight text-black mb-2 leading-snug">
                       {step.title}
                     </h3>
 
@@ -489,8 +481,9 @@ export default function PlatformClientPage() {
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-gray-100 flex items-center text-[9px] font-black uppercase tracking-wider text-gray-400">
-                    Phase {step.phase}
+                  <div className="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between text-[9px] font-black uppercase tracking-wider text-gray-400">
+                    <span>Phase {step.phase}</span>
+                    <span className="text-black font-[1000]">Step {idx + 1} of 4</span>
                   </div>
                 </div>
               );
@@ -501,17 +494,17 @@ export default function PlatformClientPage() {
           <div className="mt-12 p-6 md:p-8 bg-black text-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(234,179,8,1)] flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-1 text-center md:text-left">
               <div className="text-xs font-[1000] uppercase tracking-widest text-[#EAB308]">
-                Integrated Coaching Workflow
+                Continuous Feedback Loop
               </div>
               <p className="text-xs md:text-sm font-bold text-gray-300">
-                Coach Diagnoses Weakness → Deploys Custom Homework → Student Practices on Platform → Coach Verifies Progress → Curriculum Upgrades
+                1. Live 1-on-1 Class ➔ 2. Targeted Puzzles Pushed ➔ 3. Solution & Mistake Analysis ➔ 4. Adaptive Improvement on Next Class
               </p>
             </div>
             <button
               onClick={openDemoModal}
               className="px-6 py-3.5 bg-[#EAB308] text-black font-[1000] text-xs uppercase tracking-[0.2em] border-2 border-black hover:bg-white transition-colors shrink-0"
             >
-              Test Free Platform Demo →
+              Experience The Loop in Free Demo →
             </button>
           </div>
 

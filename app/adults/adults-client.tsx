@@ -31,7 +31,12 @@ import {
   X as XIcon,
   PlayCircle,
   HelpCircle,
-  Users
+  Users,
+  CalendarCheck,
+  MessageSquare,
+  Coffee,
+  Radio,
+  Gamepad2
 } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
 
@@ -248,6 +253,58 @@ const PLATFORM_FEATURES = [
     icon: TrendingUp,
     title: "Dynamically Evolving Curriculum",
     desc: "Your training roadmap automatically upgrades and deepens as your rating climbs and goals evolve."
+  }
+];
+
+// Scheduling Freedom Features (No rigid batches)
+const SCHEDULING_FREEDOM_ITEMS = [
+  {
+    icon: Clock,
+    title: "No Rigid Batches — Pick Exact Times",
+    desc: "Choose from 6:00 AM early mornings to 11:30 PM late nights across all international timezones. You are never locked into fixed batch timings."
+  },
+  {
+    icon: CalendarCheck,
+    title: "100% Flexible Rescheduling",
+    desc: "Got an urgent client meeting, sprint deadline, or family event? Reschedule with simple advance notice with zero penalty."
+  },
+  {
+    icon: Coffee,
+    title: "Learn at Your Own Pace",
+    desc: "Take 1, 2, or 3 classes per week based on your workload. Speed up before tournaments or slow down when busy at work."
+  },
+  {
+    icon: Shield,
+    title: "Work Crunch & Travel Pauses",
+    desc: "Traveling or facing a hectic month? Pause your membership and resume your remaining sessions whenever you're ready."
+  }
+];
+
+// Free Adult Community & Group Section Features
+const COMMUNITY_FEATURES = [
+  {
+    icon: Swords,
+    badge: "100% Free for Students",
+    title: "Weekly Adult Arena Tournaments",
+    desc: "Compete in friendly, stress-free Swiss and Arena tournaments organized exclusively for our adult members on Chess.com / Lichess."
+  },
+  {
+    icon: Radio,
+    badge: "Bi-Weekly Live Group",
+    title: "Free Strategy Masterminds & Webinars",
+    desc: "Join interactive group masterminds, opening repertoire reviews, and Grandmaster Q&A sessions at zero extra cost."
+  },
+  {
+    icon: MessageSquare,
+    badge: "Adult Network",
+    title: "Private Adult Community Hub",
+    desc: "Connect with like-minded working professionals, entrepreneurs, doctors, and engineers passionate about chess in our adult Discord/WhatsApp network."
+  },
+  {
+    icon: Gamepad2,
+    badge: "Peer Sparring",
+    title: "Study Partner & Sparring Matchmaking",
+    desc: "Find casual training partners at your exact rating level to practice opening lines and endgame techniques between your 1-on-1 classes."
   }
 ];
 
@@ -936,6 +993,153 @@ export default function AdultsClientPage() {
                 </div>
               );
             })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          4B. NO RIGID BATCHES & FREE ADULT COMMUNITY ECOSYSTEM
+      ========================================================================= */}
+      <section className="py-20 md:py-28 bg-white border-b-8 border-black relative overflow-hidden">
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#EAB308] text-black border-2 border-black text-[10px] font-[1000] uppercase tracking-[0.25em]">
+              <Users className="w-3.5 h-3.5" />
+              Built for Busy Working Adults
+            </div>
+
+            <h2 className="text-3xl md:text-5xl font-[1000] text-black uppercase tracking-tight">
+              ZERO RIGID BATCHES. <br />
+              <span className="text-[#EAB308] [-webkit-text-stroke:2px_black]">
+                PLUS FREE ADULT COMMUNITY.
+              </span>
+            </h2>
+
+            <p className="text-gray-700 font-bold text-sm md:text-base leading-relaxed">
+              Never rearrange your busy life for a class. Learn 1-on-1 at your preferred hours and connect with a vibrant global network of fellow adult chess improvers for free.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            
+            {/* COLUMN 1: 100% SCHEDULING FREEDOM */}
+            <div className="border-4 border-black bg-gray-50 p-8 md:p-10 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between space-y-8">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b-2 border-black pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-black text-[#EAB308] border-2 border-black flex items-center justify-center">
+                      <Clock className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-black uppercase text-gray-500 tracking-widest">
+                        Total Calendar Control
+                      </span>
+                      <h3 className="text-xl md:text-2xl font-[1000] uppercase text-black">
+                        No Fixed Batches or Rigid Timings
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-[1000] uppercase px-2.5 py-1 bg-black text-[#EAB308]">
+                    100% Flexible
+                  </span>
+                </div>
+
+                <p className="text-xs md:text-sm font-bold text-gray-700 leading-relaxed">
+                  Traditional academies force adults into fixed weekday evening batches. At ChessMate, every lesson is scheduled around <span className="text-black font-[1000]">your personal calendar</span>—whether that is before work, during lunch, late nights, or relaxed weekend mornings.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {SCHEDULING_FREEDOM_ITEMS.map((item, idx) => {
+                    const IconC = item.icon;
+                    return (
+                      <div
+                        key={idx}
+                        className="p-4 bg-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] space-y-2"
+                      >
+                        <div className="flex items-center gap-2 font-[1000] text-xs uppercase text-black">
+                          <IconC className="w-4 h-4 text-[#EAB308] shrink-0" />
+                          <span>{item.title}</span>
+                        </div>
+                        <p className="text-[10px] font-bold text-gray-600 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="p-4 bg-[#EAB308]/20 border-2 border-black flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-black shrink-0" />
+                <p className="text-[11px] font-black uppercase text-black">
+                  Need to reschedule? Simply notify your coach in advance with zero penalty.
+                </p>
+              </div>
+            </div>
+
+            {/* COLUMN 2: FREE ADULT COMMUNITY & GROUP SECTION */}
+            <div className="border-4 border-black bg-black text-white p-8 md:p-10 shadow-[10px_10px_0px_0px_rgba(234,179,8,1)] flex flex-col justify-between space-y-8">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b-2 border-white/20 pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#EAB308] text-black border-2 border-black flex items-center justify-center">
+                      <Users className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-black uppercase text-[#EAB308] tracking-widest">
+                        Included with Every Plan
+                      </span>
+                      <h3 className="text-xl md:text-2xl font-[1000] uppercase text-white">
+                        Free Adult Chess Community & Groups
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-[1000] uppercase px-2.5 py-1 bg-[#22C55E] text-white">
+                    Free Bonus
+                  </span>
+                </div>
+
+                <p className="text-xs md:text-sm font-bold text-gray-300 leading-relaxed">
+                  While your personalized coaching is strictly private 1-on-1, you gain <span className="text-[#EAB308] font-[1000]">complimentary lifetime access</span> to our active community of adult improvers. Practice, discuss strategy, and play in weekly tournaments without paying a dime extra.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {COMMUNITY_FEATURES.map((feat, idx) => {
+                    const IconC = feat.icon;
+                    return (
+                      <div
+                        key={idx}
+                        className="p-4 bg-white/10 border-2 border-white/20 hover:border-[#EAB308] transition-colors space-y-2"
+                      >
+                        <div className="flex items-center justify-between">
+                          <IconC className="w-4 h-4 text-[#EAB308]" />
+                          <span className="text-[8px] font-black uppercase tracking-wider text-[#EAB308] bg-black px-1.5 py-0.5 border border-[#EAB308]/40">
+                            {feat.badge}
+                          </span>
+                        </div>
+                        <h4 className="font-[1000] text-xs uppercase text-white">
+                          {feat.title}
+                        </h4>
+                        <p className="text-[10px] font-bold text-gray-400 leading-relaxed">
+                          {feat.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <button
+                onClick={openDemoModal}
+                className="w-full py-4 bg-[#EAB308] text-black font-[1000] text-xs uppercase tracking-[0.2em] border-2 border-black hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
+              >
+                Join Adult Program & Free Community
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
           </div>
 
         </div>
