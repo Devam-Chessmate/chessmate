@@ -31,18 +31,32 @@ const Header: React.FC = () => {
 
   const navItems: NavItem[] = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" }, // Changed from "About"
-    { name: "Courses", href: "/courses" },
+    { name: "About Us", href: "/about" },
     {
-      name: "Puzzles",
+      name: "Courses",
+      href: "/courses",
       subItems: [
-        { name: "Beginner", href: "/puzzles/beginner" },
-        { name: "Intermediate", href: "/puzzles/intermediate" },
-        { name: "Advanced", href: "/puzzles/advanced" },
+        { name: "All Courses", href: "/courses" },
+        { name: "1-on-1 Online Coaching", href: "/online-coaching" },
+        { name: "Chess for Adults", href: "/chess-classes-for-adults" },
+        { name: "Comprehensive Curriculum", href: "/curriculum" },
+        { name: "Intensive Camps", href: "/training-camps" },
+        { name: "Future Champions (FCS)", href: "/fcs" },
+      ],
+    },
+    {
+      name: "Practice",
+      href: "/platform",
+      subItems: [
+        { name: "24/7 Training Platform", href: "/platform" },
+        { name: "Daily Tactics & Puzzles", href: "/puzzles" },
+        { name: "Beginner Puzzles", href: "/puzzles/beginner" },
+        { name: "Intermediate Tactics", href: "/puzzles/intermediate" },
+        { name: "Advanced Calculation", href: "/puzzles/advanced" },
       ],
     },
     { name: "Blogs", href: "/blog" },
-    { name: "Payments", href: "/pay" }, // Highlighted in the render
+    { name: "Payments", href: "/pay" },
     { name: "Contact Us", href: "/contact" },
   ];
 

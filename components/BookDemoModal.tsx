@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { X, CheckCircle, Loader2, Zap, Star, Send } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
 import { motion } from "framer-motion";
@@ -8,7 +9,8 @@ import emailjs from "@emailjs/browser";
 
 const COUNTRY_DIAL_CODES = [
   { code: "+91", label: "India (+91)" },
-  { code: "+1", label: "USA / Canada (+1)" },
+  { code: "+1 (USA)", label: "USA (+1)" },
+  { code: "+1 (Canada)", label: "Canada (+1)" },
   { code: "+44", label: "UK (+44)" },
   { code: "+65", label: "Singapore (+65)" },
   { code: "+971", label: "UAE (+971)" },
@@ -28,6 +30,7 @@ const COUNTRY_DIAL_CODES = [
 ];
 
 export default function BookDemoModal() {
+  const router = useRouter();
   const { isOpen, closeDemoModal } = useDemoModal();
 
   const [formData, setFormData] = useState({
@@ -89,7 +92,8 @@ export default function BookDemoModal() {
       setTimeout(() => {
         closeDemoModal();
         setSubmitStatus(null);
-      }, 1500);
+        router.push("/thank-you");
+      }, 800);
 
     } catch (error) {
       console.error(error);

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Phone,
   Mail,
@@ -14,7 +15,8 @@ import emailjs from "@emailjs/browser";
 
 const COUNTRY_DIAL_CODES = [
   { code: "+91", label: "India (+91)" },
-  { code: "+1", label: "USA / Canada (+1)" },
+  { code: "+1 (USA)", label: "USA (+1)" },
+  { code: "+1 (Canada)", label: "Canada (+1)" },
   { code: "+44", label: "UK (+44)" },
   { code: "+65", label: "Singapore (+65)" },
   { code: "+971", label: "UAE (+971)" },
@@ -34,6 +36,7 @@ const COUNTRY_DIAL_CODES = [
 ];
 
 const ContactSection: React.FC = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     studentName: "",
     studentAge: "",
@@ -87,6 +90,10 @@ const ContactSection: React.FC = () => {
         email: "",
         comment: "",
       });
+
+      setTimeout(() => {
+        router.push("/thank-you");
+      }, 800);
 
     } catch (error) {
       console.error(error);

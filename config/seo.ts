@@ -169,6 +169,54 @@ export const SEO_CONFIG = {
       noIndex: false,
     },
 
+    // ♟️ Chess Classes for Adults
+    adults: {
+      title: "Personalized Online Chess Classes for Adults | 1-on-1 Coaching - Chessmate Academy",
+      description:
+        "Elite online chess classes for adults of all levels—beginners, returners, and rated improvers. 1-on-1 coaching, game analysis, custom training plans, and flexible timings designed for busy adults. Book a free assessment today!",
+      keywords: [
+        "chess classes for adults",
+        "online chess classes for adults",
+        "adult chess coaching",
+        "online chess lessons for adults",
+        "one-on-one chess coaching",
+        "personalized chess training",
+        "chess coach for adults",
+        "chess lessons for beginners/intermediate adults",
+        "adult chess improver",
+        "FIDE rated coach for adults"
+      ],
+      canonical: "/chess-classes-for-adults",
+      ogTitle: "Online Chess Classes for Adults | 1-on-1 Coaching - Chessmate Academy",
+      ogDescription:
+        "Tailored 1-on-1 chess coaching for adults. Flexible schedules, deep personal game analysis, and structured plans to break your rating plateau.",
+      ogImage: "/adult-coaching-hero.jpg",
+      noIndex: false,
+    },
+
+    // ⚡ ChessMate Training Platform & Product Features
+    platform: {
+      title: "ChessMate Training Platform | Continuous 24/7 Practice Ecosystem",
+      description:
+        "Your training doesn't end when the live class ends. Access personalized assignments, 10,000+ tactical puzzles, personal game analysis, gamified streaks, and online arena tournaments.",
+      keywords: [
+        "chess training platform",
+        "online chess practice software",
+        "personalized chess assignments",
+        "chess tactics trainer",
+        "chess puzzle database",
+        "chess game analysis tool",
+        "gamified chess learning",
+        "chess homework app"
+      ],
+      canonical: "/platform",
+      ogTitle: "ChessMate Training Platform | 24/7 Continuous Chess Training Ecosystem",
+      ogDescription:
+        "Practice between classes with personalized assignments, 10k+ puzzles, game analysis, and dynamic learning roadmaps.",
+      ogImage: "/dashboard.jpeg",
+      noIndex: false,
+    },
+
     // 🏆 Coaches & Mentors
     coaches: {
       title: "Our Coaches | FIDE Rated Masters & Grandmaster Mentors - Chessmate Academy",
@@ -437,6 +485,15 @@ export const SEO_CONFIG = {
       canonical: "/quick-pay",
       noIndex: true, // Instructs search engines not to index payment links
     },
+
+    // 🎉 Thank You Page (After form submission)
+    thankYou: {
+      title: "Thank You! Book Your Demo Slot | Chessmate Academy",
+      description: "Thank you for requesting a free demo class with Chessmate Academy. Select your preferred date and time slot.",
+      keywords: ["Thank You", "Book Slot", "Demo Confirmation"],
+      canonical: "/thank-you",
+      noIndex: true,
+    },
   },
 
   // ─── 3. SCHEMA.ORG STRUCTURED DATA (JSON-LD) ────────────────────────────────
@@ -538,6 +595,18 @@ export const SEO_CONFIG = {
         name: "Advanced Tournament Preparation & FIDE Rating Mastery",
         description:
           "Grandmaster-curated training with deep calculation, complex endgames, opening repertoire formulation, and psychological tournament preparation.",
+        provider: {
+          "@type": "Organization",
+          name: "Chessmate Academy",
+          sameAs: "https://thechessmate.org",
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: "Personalized Online Chess Coaching for Adults",
+        description:
+          "Personalized 1-on-1 chess coaching for adult improvers, beginners, and tournament players. Flexible scheduling, personalized game analysis, and custom study plans.",
         provider: {
           "@type": "Organization",
           name: "Chessmate Academy",

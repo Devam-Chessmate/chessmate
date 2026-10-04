@@ -31,7 +31,7 @@ export default function BookDemoPage() {
     { 
       name: "Sai Nitisha", 
       achievement: "FIDE Rated Champion", 
-      rating: "Secured 1st Place and ₹3,500 Cash Prize at the Hyderabad FIDE Rating Tournament.",
+      rating: "Secured 1st Place and Champion Trophy at the Hyderabad FIDE Rating Tournament.",
       avatar: "/6.jpeg"
     },
     { 

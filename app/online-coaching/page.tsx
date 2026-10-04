@@ -21,17 +21,17 @@ export default function OnlineCoachingPage() {
   const [selectedPackage, setSelectedPackage] = useState("")
 
   const packages = [
-    { name: "Single Session", price: "₹800", duration: "60 minutes", description: "Perfect for trying out online coaching or getting help with specific problems.", features: ["1-on-1 coaching", "Screen sharing", "Game analysis", "Homework assignment"], color: "from-blue-700 to-cyan-700", popular: false },
-    { name: "Weekly Package", price: "₹2,800", duration: "4 sessions", description: "Consistent weekly coaching for steady improvement over a month.", features: ["4 sessions (1 per week)", "Progress tracking", "Custom study plan", "WhatsApp support"], color: "from-teal-700 to-emerald-700", popular: true },
-    { name: "Intensive Monthly", price: "₹5,200", duration: "8 sessions", description: "Accelerated learning with twice-weekly sessions for rapid improvement.", features: ["8 sessions (2 per week)", "Tournament preparation", "Opening repertoire", "24/7 chat support"], color: "from-purple-700 to-pink-700", popular: false },
-    { name: "Master Class", price: "₹9,600", duration: "12 sessions", description: "Comprehensive coaching program for serious players aiming for titles.", features: ["12 sessions (3 per week)", "GM-level analysis", "Psychological training", "Competition coaching"], color: "from-yellow-600 to-orange-600", popular: false },
+    { name: "Trial Evaluation", price: "Free Assessment", duration: "45 minutes", description: "Perfect for trying out online coaching, evaluating your level and game analysis.", features: ["1-on-1 coaching", "Screen sharing", "Game analysis", "Personalized Roadmap"], color: "from-blue-700 to-cyan-700", popular: false },
+    { name: "Weekly Mentorship", price: "Custom Schedule", duration: "4 sessions", description: "Consistent weekly coaching for steady rating improvement over a month.", features: ["4 sessions (1 per week)", "Progress tracking", "Custom study plan", "WhatsApp support"], color: "from-teal-700 to-emerald-700", popular: true },
+    { name: "Intensive Track", price: "Accelerated Plan", duration: "8 sessions", description: "Accelerated learning with twice-weekly sessions for rapid improvement.", features: ["8 sessions (2 per week)", "Tournament preparation", "Opening repertoire", "24/7 chat support"], color: "from-purple-700 to-pink-700", popular: false },
+    { name: "Master Class", price: "Championship Track", duration: "12 sessions", description: "Comprehensive coaching program for serious players aiming for FIDE titles.", features: ["12 sessions (3 per week)", "GM-level analysis", "Psychological training", "Competition coaching"], color: "from-yellow-600 to-orange-600", popular: false },
   ]
 
   const coaches = [
-    { name: "GM Rajesh Kumar", rating: "2650", price: "₹1000/hr", speciality: "Opening Theory" },
-    { name: "WGM Priya Sharma", rating: "2450", price: "₹800/hr", speciality: "Tactical Training" },
-    { name: "IM Arjun Reddy", rating: "2400", price: "₹700/hr", speciality: "Endgame Mastery" },
-    { name: "FM Kavitha Nair", rating: "2300", price: "₹600/hr", speciality: "Youth Coaching" },
+    { name: "GM Rajesh Kumar", rating: "2650", price: "FIDE Grandmaster", speciality: "Opening Theory" },
+    { name: "WGM Priya Sharma", rating: "2450", price: "FIDE Master", speciality: "Tactical Training" },
+    { name: "IM Arjun Reddy", rating: "2400", price: "International Master", speciality: "Endgame Mastery" },
+    { name: "FM Kavitha Nair", rating: "2300", price: "FIDE Master", speciality: "Youth Coaching" },
   ]
 
   const timeSlots = ["09:00 AM","10:00 AM","11:00 AM","02:00 PM","03:00 PM","04:00 PM","05:00 PM","06:00 PM","07:00 PM"]

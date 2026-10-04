@@ -74,7 +74,7 @@ export default function PlatformSection() {
                 </div>
               ))}
             </div>
-            <Link href="https://classroom.thechessmate.org/" className="inline-block mt-4">
+            <Link href="/platform" className="inline-block mt-4">
 
             <button className="flex items-center gap-3 px-8 py-4 bg-black text-white font-black text-xs uppercase tracking-widest hover:bg-yellow-500 hover:text-black transition-all group shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)]">
               Explore the Platform <ChevronRight className="group-hover:translate-x-2 transition-transform" />
