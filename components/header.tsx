@@ -37,11 +37,7 @@ const Header: React.FC = () => {
       href: "/courses",
       subItems: [
         { name: "All Courses", href: "/courses" },
-        { name: "1-on-1 Online Coaching", href: "/online-coaching" },
         { name: "Chess for Adults", href: "/chess-classes-for-adults" },
-        { name: "Comprehensive Curriculum", href: "/curriculum" },
-        { name: "Intensive Camps", href: "/training-camps" },
-        { name: "Future Champions (FCS)", href: "/fcs" },
       ],
     },
     {
