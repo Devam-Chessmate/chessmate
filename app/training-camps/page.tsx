@@ -3,7 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CalendarX, Mail, ArrowRight, BookOpen } from "lucide-react";
-import TrainingCampsBanner from "@/components/ui/trainingCampBanner"; // Import the banner we just made
+import TrainingCampsBanner from "@/components/ui/trainingCampBanner";
+import TestimonialsSection from "@/components/testimonials-section";
 
 const NoActiveCamps: React.FC = () => {
   return (
@@ -76,6 +77,9 @@ const NoActiveCamps: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <TestimonialsSection />
 
       {/* 4. Contact Footer Link */}
       <div className="bg-white py-12 text-center border-t-4 border-black">

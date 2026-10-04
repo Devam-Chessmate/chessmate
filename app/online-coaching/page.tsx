@@ -14,6 +14,7 @@ import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { CalendarIcon, Clock, MapPin, ArrowRight, CheckCircle, Globe, Headphones, Monitor } from "lucide-react"
 import { format } from "date-fns"
+import TestimonialsSection from "@/components/testimonials-section"
 
 export default function OnlineCoachingPage() {
   const [selectedDate, setSelectedDate] = useState<Date>()
@@ -213,27 +214,8 @@ export default function OnlineCoachingPage() {
         </div>
       </section>
 
-      {/* Success Stories */}
-      <section className="py-16 bg-gradient-to-br from-blue-700 to-emerald-700">
-        <div className="max-w-6xl mx-auto text-center text-white">
-          <h2 className="text-4xl mb-12">Student Success Stories</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[{name:"Rahul Sharma",improvement:"800 → 1400 rating",testimonial:"Online coaching helped me improve rapidly. The flexibility was perfect for my schedule."},
-              {name:"Anita Patel",improvement:"Beginner → State Champion",testimonial:"Started as a beginner and won the state championship within 2 years!"},
-              {name:"Kiran Kumar",improvement:"1200 → 1800 rating",testimonial:"The personalized attention and analysis helped me reach new heights."}]
-              .map((s,i) => (
-                <Card key={i} className="bg-white bg-opacity-10 backdrop-blur-sm rounded p-6">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-blue-900 flex items-center justify-center mb-4">
-                    <Star className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold">{s.name}</h3>
-                  <div className="text-cyan-300 font-semibold mb-3">{s.improvement}</div>
-                  <p className="italic">"{s.testimonial}"</p>
-                </Card>
-              ))}
-          </div>
-        </div>
-      </section>
+      {/* Auto-scrolling Reviews / Testimonials */}
+      <TestimonialsSection />
     </div>
   )
 }

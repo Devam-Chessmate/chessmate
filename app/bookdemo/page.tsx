@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useDemoModal } from "@/context/DemoContext";
+import TestimonialSection from "@/components/testimonials-section";
 import Link from "next/link";
 
 export default function BookDemoPage() {
@@ -25,27 +26,6 @@ export default function BookDemoPage() {
     { icon: <Target className="w-6 h-6 md:w-8 md:h-8" />, text: "Skill Assessment", subtext: "Personalized feedback", color: "bg-yellow-400" },
     { icon: <BookOpen className="w-6 h-6 md:w-8 md:h-8" />, text: "Sample Lesson", subtext: "Experience our teaching", color: "bg-white" },
     { icon: <Trophy className="w-6 h-6 md:w-8 md:h-8" />, text: "Growth Roadmap", subtext: "Custom learning plan", color: "bg-yellow-400" },
-  ];
-
-  const successStories = [
-    { 
-      name: "Sai Nitisha", 
-      achievement: "FIDE Rated Champion", 
-      rating: "Secured 1st Place and Champion Trophy at the Hyderabad FIDE Rating Tournament.",
-      avatar: "/6.jpeg"
-    },
-    { 
-      name: "Under 8 Champion", 
-      achievement: "State Level Winner", 
-      rating: "Clinched 1st Place in the 3rd C-Cube State Level Chess Tournament under Coach Hariharan.",
-      avatar: "/1.jpeg"
-    },
-    { 
-      name: "Ritwik", 
-      achievement: "U-1400 Category", 
-      rating: "Achieved 2nd Place at the Unity Open Chess Tournament with expert guidance from Coach Raghav.",
-      avatar: "/ritvik.jpeg"
-    },
   ];
 
   return (
@@ -96,42 +76,8 @@ export default function BookDemoPage() {
         </div>
       </section>
 
-      {/* --- SUCCESS STORIES --- */}
-      <section className="py-16 md:py-24 border-t-4 border-black bg-gray-50 relative">
-         <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-black text-white px-5 py-2 md:px-8 md:py-3 border-[3px] md:border-4 border-black rounded-xl font-black uppercase italic -translate-y-1/2 shadow-[6px_6px_0px_0px_rgba(253,224,71,1)] text-xs md:text-base tracking-widest">
-            Hall of Fame
-         </div>
-
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-            {successStories.map((student, index) => (
-              <div 
-                key={index} 
-                className="bg-white border-[3px] md:border-4 border-black p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-default group"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-yellow-400 rounded-full translate-x-1 translate-y-1 -z-10 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform"></div>
-                    <img 
-                      src={student.avatar} 
-                      alt={student.name} 
-                      className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-[3px] border-black grayscale group-hover:grayscale-0 transition-all" 
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-base md:text-lg font-black text-black uppercase italic leading-none">{student.name}</h3>
-                    <p className="text-[9px] md:text-[10px] font-black text-yellow-600 uppercase tracking-widest mt-1">{student.achievement}</p>
-                  </div>
-                </div>
-                <p className="text-sm font-bold text-gray-600 italic leading-relaxed mb-6">"{student.rating}"</p>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-black fill-yellow-400" />)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* --- REVIEWS & TESTIMONIALS (AUTOSCROLLING) --- */}
+      <TestimonialSection />
 
       {/* --- FINAL CTA SECTION --- */}
       <section className="py-16 md:py-24 bg-black relative overflow-hidden">

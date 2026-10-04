@@ -37,6 +37,7 @@ import {
   Compass
 } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
+import TestimonialSection from "@/components/testimonials-section";
 
 // 4-Step Continuous Improvement Loop: Live Class -> Puzzles -> Solution Analysis -> Adaptive Improvement
 const COACHING_LOOP_STEPS = [
@@ -95,7 +96,7 @@ const PLATFORM_CORE_FEATURES = [
       "Detailed solution walkthroughs and alternative lines",
       "Automated reminder nudges to keep you consistent"
     ],
-    image: "/dashboard.jpeg",
+    image: "/assign.png",
     imageAlt: "Personalized Chess Homework Dashboard"
   },
   {
@@ -117,7 +118,7 @@ const PLATFORM_CORE_FEATURES = [
       "Spaced repetition engine to eliminate recurring blindspots",
       "Speed rush mode to sharpen blitz and rapid reflexes"
     ],
-    image: "/fcs-platform.jpg",
+    image: "/puzzle.png",
     imageAlt: "ChessMate Tactical Calculation Trainer"
   },
   {
@@ -139,7 +140,7 @@ const PLATFORM_CORE_FEATURES = [
       "Time management & move-clock discipline tracking",
       "Personal 'Mistake Vault' to re-test your critical turns"
     ],
-    image: "/adult-game-analysis.jpg",
+    image: "/analysis.png",
     imageAlt: "Chess Game Diagnostics and Mistake Analysis"
   },
   {
@@ -161,7 +162,7 @@ const PLATFORM_CORE_FEATURES = [
       "Streak freeze protection for busy work/school days",
       "Milestone reward certificates signed by grandmasters"
     ],
-    image: "/dashboard.jpeg",
+    image: "/dash.png",
     imageAlt: "Gamified Chess Learning and Daily Streaks"
   },
   {
@@ -183,7 +184,7 @@ const PLATFORM_CORE_FEATURES = [
       "Blindfold memory & piece placement challenges",
       "Blitz king & pawn endgame race simulators"
     ],
-    image: "/fcs-platform.jpg",
+    image: "/mini.png",
     imageAlt: "Interactive Chess Mini Games and Reflex Sprints"
   },
   {
@@ -205,7 +206,7 @@ const PLATFORM_CORE_FEATURES = [
       "Live leaderboard standings and rating tracking",
       "Direct integration with coach review dashboards"
     ],
-    image: "/open.png",
+    image: "/tour.png",
     imageAlt: "Online Chess Tournaments and Arena Matches"
   }
 ];
@@ -854,7 +855,12 @@ export default function PlatformClientPage() {
       </section>
 
       {/* =========================================================================
-          6. FINAL CALL TO ACTION: HIGH-CONVERTING BOTTOM BANNER
+          6. STUDENT TESTIMONIALS & REVIEWS (AUTOSCROLLING)
+      ========================================================================= */}
+      <TestimonialSection />
+
+      {/* =========================================================================
+          7. FINAL CALL TO ACTION: HIGH-CONVERTING BOTTOM BANNER
       ========================================================================= */}
       <section className="py-20 md:py-28 px-6 bg-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto">

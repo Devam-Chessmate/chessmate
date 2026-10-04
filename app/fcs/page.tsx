@@ -15,6 +15,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import FCSBanner from "@/components/ui/FCSBanner";
+import TestimonialsSection from "@/components/testimonials-section";
 
 // ---------- Section: Hero CTA (top booking strip) ----------
 function FCSHeroCTA() {
@@ -532,6 +533,7 @@ export default function FCSPage() {
       <PlatformSection />
       <CoachSection />
       <WhoIsThisFor />
+      <TestimonialsSection />
       <FinalCTA />
     </div>
   );

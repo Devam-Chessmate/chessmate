@@ -9,12 +9,11 @@ import {
   Star,
   Shield,
   ChevronRight,
-  Heart,
   BookOpen,
   Brain,
-  Trophy,
+  Monitor,
   Zap,
-  Users
+  Globe
 } from "lucide-react";
 import Link from "next/link";
 
@@ -29,46 +28,42 @@ export default function Footer() {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  const PROGRAM_LINKS = [
-    { name: "Online Chess Courses", href: "/courses", title: "Structured Online Chess Courses for All Levels" },
-    { name: "1-on-1 Online Coaching", href: "/online-coaching", title: "Private 1-on-1 Chess Coaching with FIDE Masters" },
-    { name: "Chess Classes for Adults", href: "/chess-classes-for-adults", title: "Personalized Online Chess Classes for Adults" },
-    { name: "FIDE Chess Curriculum", href: "/curriculum", title: "Step-by-Step Grandmaster Chess Learning Curriculum" },
-    { name: "Intensive Training Camps", href: "/training-camps", title: "Chess Holiday Camps and Tactical Bootcamps" },
-    { name: "Future Champions (FCS)", href: "/fcs", title: "Future Champions Series Competitive League" }
+  // Exactly matches Header Courses
+  const COURSE_LINKS = [
+    { name: "All Courses", href: "/courses" },
+    { name: "Chess for Adults", href: "/chess-classes-for-adults" },
   ];
 
-  const PLATFORM_LINKS = [
-    { name: "24/7 Training Platform", href: "/platform", title: "ChessMate 24/7 Student Training Platform and LMS" },
-    { name: "Interactive Tactics & Puzzles", href: "/puzzles", title: "Daily Interactive Chess Puzzles and Tactics" },
-    { name: "Beginner Chess Puzzles", href: "/puzzles/beginner", title: "Beginner Tactics and Mate-in-1 Exercises" },
-    { name: "Intermediate Tactics", href: "/puzzles/intermediate", title: "Intermediate Tactics, Pins, Forks & Skewers" },
-    { name: "Advanced Calculation", href: "/puzzles/advanced", title: "Advanced Tactical Calculation and Grandmaster Puzzles" },
-    { name: "Student Classroom Login", href: "https://classroom.thechessmate.org", title: "Enter ChessMate Online Live Classroom", external: true }
+  // Exactly matches Header Practice
+  const PRACTICE_LINKS = [
+    { name: "24/7 Training Platform", href: "/platform" },
+    { name: "Daily Tactics & Puzzles", href: "/puzzles" },
+    { name: "Beginner Puzzles", href: "/puzzles/beginner" },
+    { name: "Intermediate Tactics", href: "/puzzles/intermediate" },
+    { name: "Advanced Calculation", href: "/puzzles/advanced" },
+    { name: "Classroom Login", href: "https://classroom.thechessmate.org", external: true },
   ];
 
-  const ACADEMY_LINKS = [
-    { name: "About Chessmate Academy", href: "/about", title: "About Chessmate Academy Mentors & Mission" },
-    { name: "FIDE Certified Coaches", href: "/coaches", title: "Meet Our FIDE Rated International Chess Coaches" },
-    { name: "Student Achievements", href: "/achievements", title: "Student Tournament Victories & Rating Milestones" },
-    { name: "Chess Strategy Blog", href: "/blog", title: "Chess Strategy Guides, Openings & Parenting Insights" },
-    { name: "Tournaments & Events", href: "/events", title: "Upcoming Online Tournaments and Championships" },
-    { name: "Book a Free Demo Class", href: "/bookdemo", title: "Book a Complimentary 45-Minute 1-on-1 Assessment" },
-    { name: "Contact & Admissions", href: "/contact", title: "Contact Chessmate Academy Admissions Team" },
-    { name: "Terms & Privacy Policy", href: "/terms", title: "Chessmate Service Terms and Privacy Policy" }
+  // Exactly matches Header Main Nav Items
+  const NAV_LINKS = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Blogs", href: "/blog" },
+    { name: "Payments", href: "/pay" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
-    <footer className="relative bg-[#000000] text-white pt-16 md:pt-28 pb-12 overflow-hidden selection:bg-[#EAB308] selection:text-black border-t-[10px] border-black">
+    <footer className="relative bg-[#000000] text-white pt-16 md:pt-24 pb-12 overflow-hidden selection:bg-[#EAB308] selection:text-black border-t-[10px] border-black">
       
-      {/* --- BACKGROUND ARCHITECTURAL DECAL --- */}
+      {/* Background Architectural Decal */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] md:text-[25rem] font-[1000] text-white/[0.02] leading-none select-none -z-0 tracking-tighter uppercase italic pointer-events-none">
         CHESS
       </div>
 
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         
-        {/* TOP 4-COLUMN SEO GRID */}
+        {/* Main Footer Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-16">
           
           {/* BRAND COLUMN (Col 4) */}
@@ -125,17 +120,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLUMN 2: PROGRAMS & COACHING (Col 3) */}
-          <div className="lg:col-span-3">
+          {/* COLUMN 2: COURSES (Col 2) */}
+          <div className="lg:col-span-2">
             <h4 className="text-sm font-[1000] uppercase tracking-widest text-[#EAB308] mb-6 flex items-center gap-2 border-b-2 border-white/10 pb-2">
-              <Star className="w-4 h-4 fill-[#EAB308]" /> Chess Programs
+              <Star className="w-4 h-4 fill-[#EAB308]" /> Courses
             </h4>
-            <ul className="space-y-2.5">
-              {PROGRAM_LINKS.map((link) => (
+            <ul className="space-y-3">
+              {COURSE_LINKS.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    title={link.title}
                     className="group flex items-center gap-2 text-gray-400 hover:text-[#EAB308] font-bold text-xs uppercase tracking-wider transition-all"
                   >
                     <ChevronRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform shrink-0" />
@@ -146,20 +140,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLUMN 3: TRAINING PLATFORM & TOOLS (Col 3) */}
+          {/* COLUMN 3: PRACTICE & PLATFORM (Col 3) */}
           <div className="lg:col-span-3">
             <h4 className="text-sm font-[1000] uppercase tracking-widest text-[#EAB308] mb-6 flex items-center gap-2 border-b-2 border-white/10 pb-2">
-              <Brain className="w-4 h-4" /> Practice & Platform
+              <Brain className="w-4 h-4" /> Practice
             </h4>
             <ul className="space-y-2.5">
-              {PLATFORM_LINKS.map((link) => (
+              {PRACTICE_LINKS.map((link) => (
                 <li key={link.name}>
                   {link.external ? (
                     <a
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={link.title}
                       className="group flex items-center gap-2 text-gray-400 hover:text-[#EAB308] font-bold text-xs uppercase tracking-wider transition-all"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform shrink-0" />
@@ -168,7 +161,6 @@ export default function Footer() {
                   ) : (
                     <Link
                       href={link.href}
-                      title={link.title}
                       className="group flex items-center gap-2 text-gray-400 hover:text-[#EAB308] font-bold text-xs uppercase tracking-wider transition-all"
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform shrink-0" />
@@ -180,15 +172,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLUMN 4: ACADEMY SUPPORT & CONTACT (Col 2) */}
-          <div className="lg:col-span-2">
+          {/* COLUMN 4: EXPLORE & SUPPORT (Col 3) */}
+          <div className="lg:col-span-3">
             <h4 className="text-sm font-[1000] uppercase tracking-widest text-[#EAB308] mb-6 flex items-center gap-2 border-b-2 border-white/10 pb-2">
-              <Shield className="w-4 h-4" /> Support
+              <Shield className="w-4 h-4" /> Quick Links
             </h4>
             <div className="space-y-5">
-              <div className="space-y-1">
+              <ul className="grid grid-cols-2 gap-2">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      href={link.href}
+                      className="group flex items-center gap-1.5 text-gray-400 hover:text-[#EAB308] font-bold text-xs uppercase tracking-wider transition-all"
+                    >
+                      <ChevronRight className="w-3 h-3 text-[#EAB308] shrink-0" />
+                      <span>{link.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="space-y-1 pt-2 border-t border-white/10">
                 <p className="text-[9px] font-black uppercase text-gray-400 tracking-wider">Admissions Call</p>
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-0.5">
                   <a href="tel:+917990775581" className="text-xs font-black text-white hover:text-[#EAB308] transition-colors">
                     +91 79907 75581
                   </a>
@@ -205,10 +211,10 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-2">
                 <Link
                   href="/bookdemo"
-                  className="inline-block w-full py-2 bg-[#EAB308] text-black font-[1000] text-[10px] uppercase tracking-widest text-center border border-black hover:bg-white transition-colors"
+                  className="inline-block w-full py-2.5 bg-[#EAB308] text-black font-[1000] text-[10px] uppercase tracking-widest text-center border-2 border-black hover:bg-white transition-colors"
                 >
                   Book Free Demo
                 </Link>
@@ -218,42 +224,20 @@ export default function Footer() {
 
         </div>
 
-        {/* BOTTOM KEYWORD CLUSTER & COPYRIGHT AREA */}
-        <div className="pt-10 border-t border-white/10 space-y-6">
-          
-          {/* SEO Keyword Topic Links Bar */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider text-center">
-            <Link href="/courses" className="hover:text-[#EAB308] transition-colors">Online Chess Classes</Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/chess-classes-for-adults" className="hover:text-[#EAB308] transition-colors">Adult Chess Coaching</Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/platform" className="hover:text-[#EAB308] transition-colors">Chess Training Platform</Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/online-coaching" className="hover:text-[#EAB308] transition-colors">1-on-1 Chess Lessons</Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/curriculum" className="hover:text-[#EAB308] transition-colors">FIDE Chess Curriculum</Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/coaches" className="hover:text-[#EAB308] transition-colors">FIDE Rated Coaches</Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/puzzles" className="hover:text-[#EAB308] transition-colors">Interactive Chess Puzzles</Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/blog" className="hover:text-[#EAB308] transition-colors">Chess Strategy Guides</Link>
+        {/* BOTTOM COPYRIGHT & LEGAL BAR */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.25em]">
+            © {new Date().getFullYear()} Chessmate Academy. All Rights Reserved.
+          </p>
+          <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-wider text-gray-400">
+            <Link href="/terms" className="hover:text-[#EAB308]">Terms & Privacy</Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-[#EAB308]">Contact Us</Link>
+            <span>•</span>
+            <Link href="/sitemap.xml" className="hover:text-[#EAB308]">Sitemap</Link>
           </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.25em]">
-              © {new Date().getFullYear()} Chessmate Academy. All Rights Reserved.
-            </p>
-            <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-wider text-gray-400">
-              <Link href="/terms" className="hover:text-[#EAB308]">Terms & Privacy</Link>
-              <span>•</span>
-              <Link href="/contact" className="hover:text-[#EAB308]">Contact Us</Link>
-              <span>•</span>
-              <Link href="/sitemap.xml" className="hover:text-[#EAB308]">Sitemap</Link>
-            </div>
-          </div>
-
         </div>
+
       </div>
 
       {/* --- FLOATING WHATSAPP BUTTON --- */}

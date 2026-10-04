@@ -14,6 +14,7 @@ import {
   Rocket
 } from "lucide-react";
 import TeamSection from "@/components/ui/team-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import { useDemoModal } from "@/context/DemoContext";
 
 // --- DATA ---
@@ -194,6 +195,9 @@ export default function CoachesPage() {
           </div>
         </div>
       </section>
+
+      {/* --- REVIEWS & TESTIMONIALS (AUTOSCROLLING) --- */}
+      <TestimonialsSection />
 
       {/* --- FINAL CTA --- */}
       <section className="py-16 md:py-24 bg-white text-center">

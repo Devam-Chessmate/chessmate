@@ -4,6 +4,7 @@ import AchievementGallery from "@/components/ach";
 import AchievementsBanner from "@/components/ui/AchievementsBanner";
 import AchievementsSection from "@/components/ui/AchievementsSection";
 import TrainingApproach from "@/components/ui/training";
+import TestimonialsSection from "@/components/testimonials-section";
 
 export const metadata: Metadata = getSeoMetadata("achievements");
 
@@ -13,6 +14,7 @@ export default function AchievementsPage() {
       <AchievementsBanner />
       <AchievementGallery/>
       <TrainingApproach/>
+      <TestimonialsSection />
     </div>
   );
 }

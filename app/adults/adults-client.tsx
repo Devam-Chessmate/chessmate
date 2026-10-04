@@ -39,6 +39,7 @@ import {
   Gamepad2
 } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
+import TestimonialSection from "@/components/testimonials-section";
 
 // Persona Tracks Data
 const PERSONA_TRACKS = [
@@ -1386,64 +1387,9 @@ export default function AdultsClientPage() {
       </section>
 
       {/* =========================================================================
-          7. ADULT IMPROVER TESTIMONIALS & CASE STUDIES
+          7. STUDENT TESTIMONIALS & REVIEWS (AUTOSCROLLING)
       ========================================================================= */}
-      <section className="py-20 md:py-28 bg-gray-50 border-b-8 border-black">
-        <div className="container mx-auto px-6 max-w-7xl">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#EAB308] text-black border-2 border-black text-[10px] font-[1000] uppercase tracking-[0.25em]">
-              <Star className="w-3.5 h-3.5 fill-black" />
-              Real Student Transformations
-            </div>
-
-            <h2 className="text-3xl md:text-5xl font-[1000] text-black uppercase tracking-tight">
-              HEAR FROM WORKING ADULTS <br />
-              <span className="text-[#EAB308] [-webkit-text-stroke:2px_black]">
-                WHO TRANSFORMED THEIR GAME
-              </span>
-            </h2>
-
-            <p className="text-gray-600 font-bold text-sm md:text-base">
-              From busy developers to doctors and tournament contenders—see what adult improvers achieve at ChessMate.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {ADULT_TESTIMONIALS.map((t, idx) => (
-              <div
-                key={idx}
-                className="p-8 border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between space-y-6"
-              >
-                <div className="space-y-4">
-                  {/* Rating Gain Pill */}
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-black text-[#EAB308] text-[10px] font-[1000] uppercase tracking-widest">
-                    <TrendingUp className="w-3.5 h-3.5" />
-                    {t.ratingGain} ({t.timeframe})
-                  </div>
-
-                  <p className="text-xs md:text-sm font-bold text-gray-700 leading-relaxed italic">
-                    "{t.quote}"
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-4 pt-4 border-t-2 border-gray-100">
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full border-2 border-black object-cover"
-                  />
-                  <div>
-                    <h4 className="font-[1000] text-sm uppercase text-black">{t.name}</h4>
-                    <p className="text-[10px] font-bold text-gray-500 uppercase">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
+      <TestimonialSection />
 
       {/* =========================================================================
           8. FLEXIBLE ADULT COACHING TRACKS (NO RUPEES / NO STATIC PRICING)

@@ -6,6 +6,7 @@ import FaqSection from "@/components/stats-section";
 import AchievementsSection from "@/components/ui/achievements";
 import TeamSection from "@/components/ui/team-section";
 import DemoBookingCTA from "@/components/demo-booking-cta";
+import TestimonialsSection from "@/components/testimonials-section";
 import MissionVision from "@/components/ui/mission";
 import PlatformSection from "@/components/platform";
 
@@ -21,6 +22,7 @@ export default function AboutPage() {
       <TeamSection />
       <PlatformSection/>
       <AchievementsSection />
+      <TestimonialsSection />
       <FaqSection />
       <DemoBookingCTA />
     </div>

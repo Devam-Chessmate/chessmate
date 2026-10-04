@@ -24,6 +24,7 @@ import {
   Zap,
 } from "lucide-react"
 import { format } from "date-fns"
+import TestimonialsSection from "@/components/testimonials-section"
 
 export default function EventsPage() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
@@ -318,6 +319,9 @@ export default function EventsPage() {
           </Tabs>
         </div>
       </section>
+
+      {/* Auto-scrolling Reviews */}
+      <TestimonialsSection />
     </div>
   )
 }
