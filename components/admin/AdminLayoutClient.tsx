@@ -17,7 +17,9 @@ import {
   ArrowLeft,
   ChevronRight,
   ShieldCheck,
+  LogOut,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function AdminLayoutClient({
   children,
@@ -25,7 +27,25 @@ export default function AdminLayoutClient({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
+
+  // If on login page, render full page without admin sidebar
+  if (pathname === "/admin/login") {
+    return <>{children}</>;
+  }
+
+  const handleLogout = async () => {
+    try {
+      setLoggingOut(true);
+      await fetch("/api/admin/logout", { method: "POST" });
+      router.push("/admin/login");
+      router.refresh();
+    } catch {
+      window.location.href = "/admin/login";
+    }
+  };
 
   const navLinks = [
     {
@@ -154,6 +174,20 @@ export default function AdminLayoutClient({
               </span>
               <span className="text-[10px] uppercase font-black opacity-60">↗</span>
             </Link>
+
+            <button
+              onClick={handleLogout}
+              disabled={loggingOut}
+              className="w-full mt-2 flex items-center justify-between px-3.5 py-2.5 text-xs font-black uppercase tracking-wider text-red-400 hover:text-white hover:bg-red-600/20 border border-red-500/30 transition-colors disabled:opacity-50"
+            >
+              <span className="flex items-center gap-2">
+                <LogOut className="w-3.5 h-3.5" />
+                {loggingOut ? "Signing Out..." : "Sign Out"}
+              </span>
+              <span className="text-[9px] bg-red-500/20 px-1.5 py-0.5 font-bold uppercase text-red-300">
+                Lock
+              </span>
+            </button>
           </div>
         </div>
 

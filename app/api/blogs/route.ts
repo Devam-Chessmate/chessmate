@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 // Helper to generate a clean URL slug from title
 function generateSlug(title: string): string {
   return title
