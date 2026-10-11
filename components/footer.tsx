@@ -16,9 +16,15 @@ import {
   Globe
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 300);

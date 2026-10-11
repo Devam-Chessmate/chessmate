@@ -3,11 +3,44 @@ import { SEO_CONFIG } from "@/config/seo";
 import { BLOG_POSTS } from "../blog-data";
 import PostDetailClient from "./PostDetailClient";
 import { notFound } from "next/navigation";
+import prisma from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
+
+async function getPostBySlug(slug: string) {
+  // 1. First check live Neon DB from admin panel
+  try {
+    const dbPost = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+    if (dbPost && dbPost.published) {
+      return dbPost;
+    }
+  } catch (err) {
+    console.error("Error fetching post from Neon DB:", err);
+  }
+
+  // 2. Always fallback to existing static blogs so they are permanently preserved
+  return BLOG_POSTS.find((p) => p.slug === slug);
+}
 
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({
-    slug: post.slug,
-  }));
+  const slugs = new Set<string>();
+
+  // Always include existing static blogs
+  BLOG_POSTS.forEach((p) => slugs.add(p.slug));
+
+  // Include all live blogs from Neon DB
+  try {
+    const dbPosts = await prisma.blogPost.findMany({
+      select: { slug: true },
+    });
+    dbPosts.forEach((p) => slugs.add(p.slug));
+  } catch (err) {
+    console.error("generateStaticParams DB fallback", err);
+  }
+
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -16,7 +49,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -61,9 +94,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();

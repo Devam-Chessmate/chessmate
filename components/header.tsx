@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, ArrowRightIcon } from "./ui/BannerIcon";
 import { ChevronDown, Monitor } from "lucide-react"; // Added Monitor icon for classroom
 import { useDemoModal } from "@/context/DemoContext";
@@ -16,6 +17,7 @@ interface NavItem {
 }
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
   const { openDemoModal } = useDemoModal();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
@@ -28,6 +30,10 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   const navItems: NavItem[] = [
     { name: "Home", href: "/" },

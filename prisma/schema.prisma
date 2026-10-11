@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BlogPost {
+  id              Int      @id @default(autoincrement())
+  slug            String   @unique
+  title           String
+  desc            String
+  category        String   @default("Chess Training")
+  date            String
+  author          String   @default("ChessMate Academy")
+  image           String
+  color           String   @default("bg-white")
+  shadow          String   @default("shadow-[8px_8px_0px_0px_rgba(234,179,8,1)]")
+  metaTitle       String?
+  metaDescription String?
+  targetKeywords  String[] @default([])
+  content         Json
+  published       Boolean  @default(true)
+  isFeatured      Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
