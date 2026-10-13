@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, User, Zap, Share2, Bookmark, CheckCircle2 } from "lucide-react";
 
+import RichContentRenderer from "@/components/blog/RichContentRenderer";
+
 export default function PostDetailClient({ post }: { post: any }) {
   // Safe extraction of the content object
   const content = post?.content || {};
@@ -108,33 +110,20 @@ export default function PostDetailClient({ post }: { post: any }) {
 
           <div className="space-y-12 font-medium">
             {/* Dynamic Intro */}
-            {content.intro && <p className="text-lg md:text-xl text-black font-bold">{content.intro}</p>}
+            {content.intro && <p className="text-lg md:text-xl text-black font-bold whitespace-pre-line">{content.intro}</p>}
 
             {/* Special Callouts (Myth, Brain Benefits, etc) */}
             {content.myth && <div className="bg-red-50 p-6 border-l-8 border-black font-bold italic text-black uppercase mb-8 shadow-[4px_4px_0px_0px_black]">{content.myth}</div>}
             {content.whyGapExists && <p className="text-lg">{content.whyGapExists}</p>}
             {content.whyOnlineMakesSense && <p className="text-lg">{content.whyOnlineMakesSense}</p>}
 
-            {/* 1. SECTIONS MAPPER (Standard Blogs) */}
-            {Array.isArray(content.sections) &&
-              content.sections.map((section: any, idx: number) => (
-                <div key={idx} className="space-y-4">
-                  <h2 className="text-2xl md:text-4xl text-black border-b-4 border-black inline-block pb-1">
-                    {section.heading}
-                  </h2>
-                  {section.body && <p>{section.body}</p>}
-                  {Array.isArray(section.points) && (
-                    <div className="grid gap-6 mt-6">
-                      {section.points.map((pt: any, pIdx: number) => (
-                        <div key={pIdx} className="bg-gray-50 p-6 border-l-4 border-black">
-                          <h4 className="font-black uppercase text-black mb-2">{pt.title}</h4>
-                          <p className="text-sm md:text-base">{pt.body}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+            {/* 1. RICH CONTENT RENDERER (Blocks, Middle Images, Tables, Lists, Numbering) */}
+            <RichContentRenderer content={content} />
+
+            {/* Legacy Fallback Sections for Static Hardcoded Blogs */}
+            {!Array.isArray(content.blocks) && (
+              <>
+
 
             {/* 2. NUMBERED LISTS (Tactics, Benefits, Features, Metrics, WhyItWorks, SkillsBuilt) */}
             {(() => {
@@ -161,7 +150,7 @@ export default function PostDetailClient({ post }: { post: any }) {
                         <h3 className="text-xl font-black uppercase text-black mb-2">
                           {item.title || item.name}
                         </h3>
-                        <p>{item.body}</p>
+                        <p className="whitespace-pre-line">{item.body}</p>
                       </div>
                     </div>
                   ))}
@@ -184,7 +173,7 @@ export default function PostDetailClient({ post }: { post: any }) {
                       <h3 className="text-2xl font-[1000] uppercase text-black mb-4">
                         {item.title || item.name}
                       </h3>
-                      <p>{item.body}</p>
+                      <p className="whitespace-pre-line">{item.body}</p>
                       {Array.isArray(item.points) && (
                         <ul className="mt-6 space-y-3">
                           {item.points.map((p: string, pIdx: number) => (
@@ -307,6 +296,8 @@ export default function PostDetailClient({ post }: { post: any }) {
               {content.howChessMateTeachesDifferently && <div className="p-8 bg-[#EAB308] text-black font-[1000] uppercase border-4 border-black">{content.howChessMateTeachesDifferently}</div>}
               {content.tips && <div className="p-6 bg-black text-white font-bold uppercase tracking-tight">{content.tips}</div>}
             </div>
+            </>
+            )}
 
             {/* Dynamic Conclusion / Final Verdict */}
             {(content.conclusion || content.verdict) && (
@@ -314,7 +305,7 @@ export default function PostDetailClient({ post }: { post: any }) {
                 <h3 className="text-black font-[1000] uppercase mb-4 tracking-widest flex items-center gap-2">
                   <CheckCircle2 className="w-6 h-6 text-black" /> The Final Move
                 </h3>
-                <p className="text-black font-bold italic text-lg leading-relaxed">
+                <p className="text-black font-bold italic text-lg leading-relaxed whitespace-pre-line">
                   {content.conclusion || content.verdict}
                 </p>
               </div>

@@ -130,7 +130,7 @@ export default function PremiumFaqSection() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
                         <div className="px-4 pb-8 md:pl-10 md:pr-12">
-                          <p className="text-gray-600 font-medium text-sm md:text-base leading-relaxed">
+                          <p className="text-gray-600 font-medium text-sm md:text-base leading-relaxed whitespace-pre-line">
                             {item.answer}
                           </p>
                         </div>
