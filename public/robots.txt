@@ -8,22 +8,22 @@ User-agent: PetalBot
 Disallow: /
 
 User-agent: OAI-SearchBot
-Disallow: /
+Allow: /
 
 User-agent: facebookexternalhit
 Disallow: /
 
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
 Disallow: /
 
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
 User-agent: Amazonbot
 Disallow: /
