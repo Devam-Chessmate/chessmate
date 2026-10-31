@@ -1086,7 +1086,7 @@ export function getStructuredDataSchemas(pageKey?: SeoPageKey) {
  */
 const ROBOTS = {
   allowAiCrawlers: true,
-  disallow: ["/pay", "/quick-pay", "/api/"],
+  disallow: ["/admin", "/api/", "/pay", "/quick-pay"],
   // Aggressive scrapers with no search/AI-answer value - keep blocked.
   blockedBots: ["PetalBot", "Bytespider"],
   aiCrawlers: [
