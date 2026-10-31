@@ -88,7 +88,12 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      creator: SEO_CONFIG.site.twitterHandle,
+      ...(SEO_CONFIG.site.twitterHandle
+        ? {
+            creator: SEO_CONFIG.site.twitterHandle,
+            site: SEO_CONFIG.site.twitterHandle,
+          }
+        : {}),
       images: [ogImage],
     },
   };

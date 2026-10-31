@@ -1,14 +1,17 @@
-import  HeroSection  from "@/components/hero-section"
-import  CoursesSection  from "@/components/events-preview"
-import  DemoBookingCTA  from "@/components/demo-booking-cta"
-import  TestimonialsSection  from "@/components/testimonials-section"
-import  FaqSection  from "@/components/stats-section"
-import  FeaturesSection  from "@/components/features-section"
-import AchievementsSection from "@/components/ui/AchievementsSection"
-import WhyChooseUsSection from "@/components/why-choose"
-import DifferenceSection from "@/components/ui/diff"
-import AgeInclusiveSection from "@/components/ui/age"
+import type { Metadata } from "next";
+import { getSeoMetadata } from "@/config/seo";
+import HeroSection from "@/components/hero-section";
+import CoursesSection from "@/components/events-preview";
+import DemoBookingCTA from "@/components/demo-booking-cta";
+import TestimonialsSection from "@/components/testimonials-section";
+import FaqSection from "@/components/stats-section";
+import FeaturesSection from "@/components/features-section";
+import AchievementsSection from "@/components/ui/AchievementsSection";
+import WhyChooseUsSection from "@/components/why-choose";
+import DifferenceSection from "@/components/ui/diff";
+import AgeInclusiveSection from "@/components/ui/age";
 
+export const metadata: Metadata = getSeoMetadata("home");
 
 export default function HomePage() {
   return (
@@ -19,14 +22,14 @@ export default function HomePage() {
           <WhyChooseUsSection />
         </section>
         <CoursesSection />
-        <AgeInclusiveSection/>
+        <AgeInclusiveSection />
         <TestimonialsSection />
-        <DifferenceSection/>
+        <DifferenceSection />
         <section id="faq">
-        <FaqSection />
+          <FaqSection />
         </section>
         <DemoBookingCTA />
       </main>
     </div>
-  )
+  );
 }

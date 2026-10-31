@@ -1,8 +1,10 @@
 import { MetadataRoute } from "next";
+import { SEO_CONFIG } from "@/config/seo";
 import { BLOG_POSTS } from "./blog/blog-data";
+import prisma from "@/lib/prisma";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://thechessmate.org";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = SEO_CONFIG.site.siteUrl;
   const lastModified = new Date();
 
   // Core Landing Pages with high priority
@@ -28,13 +30,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/gallery`, priority: 0.7, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/blog`, priority: 0.85, changeFrequency: "daily" as const },
     { url: `${baseUrl}/contact`, priority: 0.75, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/terms`, priority: 0.3, changeFrequency: "yearly" as const }
+    { url: `${baseUrl}/terms`, priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
-  // Dynamic Blog Post Routes
-  const blogRoutes = BLOG_POSTS.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date || Date.now()),
+  // Dynamic Blog Post Routes (Neon DB + static fallback)
+  const slugMap = new Map<string, { lastModified: Date }>();
+
+  // Static posts first
+  BLOG_POSTS.forEach((post) => {
+    slugMap.set(post.slug, {
+      lastModified: new Date(post.date || Date.now()),
+    });
+  });
+
+  // DB posts from Neon (override or add)
+  try {
+    const dbPosts = await prisma.blogPost.findMany({
+      where: { published: true },
+      select: { slug: true, updatedAt: true },
+    });
+    dbPosts.forEach((post) => {
+      slugMap.set(post.slug, {
+        lastModified: new Date(post.updatedAt || Date.now()),
+      });
+    });
+  } catch (err) {
+    console.error("sitemap DB lookup fallback", err);
+  }
+
+  const blogRoutes = Array.from(slugMap.entries()).map(([slug, data]) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: data.lastModified,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
